@@ -11,38 +11,48 @@
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Oversees | International Trade & Export Business Consultancy" />
-  <meta property="og:description" content="Guiding manufacturers, traders, and entrepreneurs into sustainable global commerce and international market entry." />
+  <meta property="og:description" content="Guiding manufacturers, traders, and entrepreneurs into structured international trade and cross-border expansion." />
   <meta property="og:image" content="images/IMG-20260924-WA0007.jpg" />
 
-  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean UI Sans) -->
+  <!-- Typography: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Precision UI Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ==========================================================
-       CSS VARIABLES & RESET
+       CSS VARIABLES & THEME: LIGHT INSTITUTIONAL EDITORIAL
        ========================================================== */
     :root {
-      --navy-deep: #071A2E;
-      --navy-abyss: #02070D;
-      --navy-surface: #0B223B;
-      --navy-border: rgba(201, 154, 50, 0.22);
-      --navy-border-subtle: rgba(255, 255, 255, 0.08);
+      /* Backgrounds & Canvas */
+      --bg-canvas: #F9F9F6;          /* Editorial warm stone/alabaster */
+      --bg-surface: #FFFFFF;         /* Crisp white paper */
+      --bg-subtle: #F0EFEA;          /* Subdued parchment tint */
+      --bg-header: rgba(249, 249, 246, 0.94);
 
-      --gold: #C99A32;
-      --gold-light: #E8C66A;
-      --gold-muted: rgba(201, 154, 50, 0.15);
+      /* Typography & Inks */
+      --navy-primary: #0A192F;       /* Deep diplomat navy / sovereign ink */
+      --navy-deep: #050E1A;          /* Deepest structural dark */
+      --slate-body: #334155;         /* High-contrast readable charcoal */
+      --slate-muted: #5E6D7E;        /* Subtle secondary text */
+      
+      /* Strategic Precious Accents */
+      --gold-accent: #9A7224;        /* Rich, dignified antique brass gold */
+      --gold-light: #B88A2E;         /* Hover brass tone */
+      --gold-surface: #F5EEDB;       /* Light gold wash for chips/tags */
+      --gold-subtle: rgba(154, 114, 36, 0.12);
 
-      --text-main: #F5F5F2;
-      --text-muted: #8F9EAF;
-      --text-light-slate: #C4CED8;
+      /* Structural Linework */
+      --border-crisp: #E2DFD8;       /* Refined editorial divider */
+      --border-dark: #0A192F;        /* Crisp structural rules */
+      --border-gold: rgba(154, 114, 36, 0.35);
 
+      /* Typography */
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
       --container-max: 1280px;
-      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after {
@@ -55,15 +65,15 @@
       scroll-behavior: smooth;
       font-size: 16px;
       overflow-x: clip;
-      background-color: var(--navy-abyss);
+      background-color: var(--bg-canvas);
     }
 
     body {
-      background-color: var(--navy-abyss);
-      color: var(--text-main);
+      background-color: var(--bg-canvas);
+      color: var(--slate-body);
       font-family: var(--font-sans);
       font-weight: 400;
-      line-height: 1.65;
+      line-height: 1.68;
       letter-spacing: -0.01em;
       overflow-x: clip;
       width: 100%;
@@ -92,14 +102,14 @@
       color: inherit;
     }
 
-    /* Subtle background grid pattern to reinforce longitude/latitude */
+    /* Architectural latitude grid underlay */
     .grid-underlay {
       position: fixed;
       inset: 0;
       background-image: 
-        linear-gradient(to right, rgba(201, 154, 50, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(201, 154, 50, 0.02) 1px, transparent 1px);
-      background-size: 80px 80px;
+        linear-gradient(to right, rgba(10, 25, 47, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(10, 25, 47, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
       pointer-events: none;
       z-index: 0;
     }
@@ -121,7 +131,7 @@
     }
 
     /* ==========================================================
-       TYPOGRAPHY REPERTOIRE
+       TYPOGRAPHY SUITE
        ========================================================== */
     .eyebrow {
       display: inline-flex;
@@ -131,44 +141,44 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-accent);
       margin-bottom: 1.25rem;
     }
 
     .eyebrow::before {
       content: "";
       width: 18px;
-      height: 1px;
-      background-color: var(--gold);
+      height: 1.5px;
+      background-color: var(--gold-accent);
     }
 
     .headline-editorial {
       font-family: var(--font-serif);
-      font-size: clamp(2.35rem, 5.5vw, 4.4rem);
+      font-size: clamp(2.4rem, 5.4vw, 4.4rem);
       line-height: 1.08;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: -0.015em;
-      color: var(--text-main);
+      color: var(--navy-primary);
     }
 
     .headline-editorial .gold {
-      color: var(--gold-light);
+      color: var(--gold-accent);
       font-style: italic;
       font-weight: 400;
     }
 
     .section-title {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
       line-height: 1.15;
-      font-weight: 500;
-      color: var(--text-main);
+      font-weight: 600;
+      color: var(--navy-primary);
       margin-bottom: 1rem;
     }
 
     .section-desc {
-      color: var(--text-muted);
-      font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+      color: var(--slate-muted);
+      font-size: clamp(1rem, 1.2vw, 1.12rem);
       line-height: 1.7;
       max-width: 620px;
     }
@@ -176,7 +186,7 @@
     .gold-rule {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, var(--gold) 0%, rgba(201, 154, 50, 0.15) 60%, transparent 100%);
+      background: linear-gradient(90deg, var(--gold-accent) 0%, rgba(154, 114, 36, 0.15) 70%, transparent 100%);
       margin: 1.75rem 0;
     }
 
@@ -186,7 +196,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -198,28 +208,28 @@
       cursor: pointer;
     }
 
-    .btn-gold {
-      background-color: var(--gold);
-      color: var(--navy-abyss);
-      border: 1px solid var(--gold);
+    .btn-navy {
+      background-color: var(--navy-primary);
+      color: #FFFFFF;
+      border: 1px solid var(--navy-primary);
     }
 
-    .btn-gold:hover {
-      background-color: var(--gold-light);
-      border-color: var(--gold-light);
-      box-shadow: 0 8px 24px rgba(201, 154, 50, 0.25);
+    .btn-navy:hover {
+      background-color: var(--gold-accent);
+      border-color: var(--gold-accent);
       transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(10, 25, 47, 0.14);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--navy-primary);
+      border: 1px solid var(--navy-primary);
     }
 
     .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
+      background-color: var(--navy-primary);
+      color: #FFFFFF;
       transform: translateY(-2px);
     }
 
@@ -232,10 +242,10 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(2, 7, 13, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--navy-border-subtle);
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-crisp);
       transition: var(--transition);
     }
 
@@ -243,23 +253,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 90px;
+      height: 88px;
     }
 
     .brand-mark {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.1rem;
     }
 
     .brand-logo-img {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       object-fit: cover;
       border-radius: 50%;
-      border: 1px solid var(--gold);
+      border: 1.5px solid var(--gold-accent);
       padding: 2px;
-      background: var(--navy-deep);
+      background: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08);
     }
 
     .brand-text-block {
@@ -269,20 +280,20 @@
 
     .brand-title {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
-      letter-spacing: 0.18em;
+      font-size: 1.5rem;
+      letter-spacing: 0.16em;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--navy-primary);
       line-height: 1;
     }
 
     .brand-sub {
       font-size: 0.62rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 0.25rem;
-      font-weight: 500;
+      color: var(--gold-accent);
+      margin-top: 0.3rem;
+      font-weight: 600;
     }
 
     .nav-links {
@@ -293,13 +304,13 @@
     }
 
     .nav-link {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 500;
-      color: var(--text-light-slate);
+      font-weight: 600;
+      color: var(--slate-body);
       position: relative;
-      padding: 0.3rem 0;
+      padding: 0.35rem 0;
     }
 
     .nav-link::after {
@@ -308,13 +319,13 @@
       bottom: 0;
       left: 0;
       width: 0;
-      height: 1px;
-      background-color: var(--gold);
+      height: 1.5px;
+      background-color: var(--gold-accent);
       transition: var(--transition);
     }
 
     .nav-link:hover {
-      color: #FFFFFF;
+      color: var(--navy-primary);
     }
 
     .nav-link:hover::after {
@@ -344,35 +355,35 @@
 
     .menu-toggle span {
       width: 24px;
-      height: 1.5px;
-      background-color: var(--gold-light);
+      height: 2px;
+      background-color: var(--navy-primary);
       transition: var(--transition);
       display: block;
     }
 
     .menu-toggle.is-active span:nth-child(1) {
-      transform: translateY(7.5px) rotate(45deg);
+      transform: translateY(8px) rotate(45deg);
     }
 
     .menu-toggle.is-active span:nth-child(2) {
-      transform: translateY(-7.5px) rotate(-45deg);
+      transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile Drawer */
+    /* Mobile Slide-down Panel */
     .mobile-nav-panel {
       position: fixed;
       top: 0;
       right: -100%;
       width: 100%;
       height: 100vh;
-      background: var(--navy-abyss);
+      background: var(--bg-canvas);
       z-index: 105;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 2.5rem;
       transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      border-left: 1px solid var(--navy-border);
+      border-left: 1px solid var(--border-crisp);
     }
 
     .mobile-nav-panel.open {
@@ -389,27 +400,29 @@
 
     .mobile-nav-link {
       font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--text-main);
+      font-size: 2.1rem;
+      color: var(--navy-primary);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      font-weight: 600;
     }
 
     .mobile-nav-link:hover {
-      color: var(--gold);
+      color: var(--gold-accent);
     }
 
     /* ==========================================================
-       HERO SECTION (Editorial & Global Celestial Motif)
+       HERO SECTION
        ========================================================== */
     .hero-section {
       position: relative;
-      min-height: calc(100vh - 90px);
-      padding: clamp(3rem, 6vw, 6rem) 0 4rem 0;
+      min-height: calc(100vh - 88px);
+      padding: clamp(3rem, 6vw, 6rem) 0 3.5rem 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
+      background: radial-gradient(circle at 85% 30%, rgba(201, 154, 50, 0.05) 0%, transparent 60%);
       overflow: hidden;
     }
 
@@ -430,10 +443,10 @@
     }
 
     .hero-summary {
-      font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-      color: var(--text-light-slate);
+      font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+      color: var(--slate-body);
       line-height: 1.75;
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 2.5rem;
       max-width: 580px;
     }
@@ -453,7 +466,7 @@
       width: 100%;
     }
 
-    /* Celestial Armillary / Globe Visual SVG */
+    /* Institutional Armillary Sphere Motif */
     .globe-stage {
       position: relative;
       width: 100%;
@@ -470,9 +483,10 @@
       height: 180px;
       border-radius: 50%;
       overflow: hidden;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 0 50px rgba(201, 154, 50, 0.2);
+      border: 2px solid var(--gold-accent);
+      box-shadow: 0 14px 40px rgba(10, 25, 47, 0.12);
       z-index: 2;
+      background: #FFFFFF;
     }
 
     .globe-emblem-core img {
@@ -510,16 +524,16 @@
     .ticker-bar {
       margin-top: clamp(2rem, 4vw, 4rem);
       padding-top: 1.75rem;
-      border-top: 1px solid var(--navy-border-subtle);
+      border-top: 1px solid var(--border-crisp);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.5rem;
-      color: var(--gold-light);
-      font-size: 0.78rem;
+      color: var(--navy-primary);
+      font-size: 0.8rem;
       letter-spacing: 0.25em;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
     }
 
@@ -531,22 +545,21 @@
 
     .ticker-bar span:not(:last-child)::after {
       content: "•";
-      color: var(--text-muted);
-      opacity: 0.4;
+      color: var(--gold-accent);
     }
 
     /* ==========================================================
        INTRO / POSITIONING SECTION
        ========================================================== */
     .intro-section {
-      padding: clamp(5rem, 8vw, 9rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
-      background: linear-gradient(180deg, var(--navy-abyss) 0%, var(--navy-deep) 100%);
+      padding: clamp(5rem, 8vw, 8.5rem) 0;
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-surface);
     }
 
     .intro-grid {
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 100px 1fr;
       gap: clamp(2rem, 5vw, 4rem);
       align-items: start;
     }
@@ -555,13 +568,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 1rem;
+      padding-top: 0.75rem;
     }
 
     .indicator-line {
       width: 1px;
-      height: 140px;
-      background: linear-gradient(to bottom, var(--gold) 0%, rgba(201, 154, 50, 0.1) 100%);
+      height: 120px;
+      background: linear-gradient(to bottom, var(--gold-accent) 0%, rgba(154, 114, 36, 0.2) 100%);
     }
 
     .indicator-year {
@@ -569,9 +582,9 @@
       transform: rotate(180deg);
       font-size: 0.7rem;
       letter-spacing: 0.25em;
-      color: var(--gold);
+      color: var(--gold-accent);
       margin-top: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
     }
 
@@ -581,62 +594,63 @@
 
     .intro-headline {
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.2rem, 4.4vw, 3.8rem);
       line-height: 1.15;
-      font-weight: 500;
-      color: var(--text-main);
+      font-weight: 600;
+      color: var(--navy-primary);
       margin-bottom: 2rem;
     }
 
     .intro-lead {
-      font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
       line-height: 1.7;
-      color: #FFFFFF;
-      font-weight: 300;
+      color: var(--navy-primary);
+      font-weight: 400;
       margin-bottom: 1.75rem;
     }
 
     .intro-body {
       font-size: 1.05rem;
       line-height: 1.8;
-      color: var(--text-muted);
+      color: var(--slate-body);
       max-width: 780px;
     }
 
     /* ==========================================================
-       SERVICES SECTION (Interactive Editorial Rows)
+       SERVICES SECTION
        ========================================================== */
     .services-section {
       padding: clamp(5rem, 8vw, 8.5rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
     }
 
     .services-header-row {
       display: flex;
       flex-direction: column;
-      margin-bottom: clamp(3rem, 5vw, 5rem);
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
     }
 
     .services-list {
       display: flex;
       flex-direction: column;
-      border-top: 1px solid var(--navy-border);
+      border-top: 1.5px solid var(--navy-primary);
     }
 
     .service-item {
-      border-bottom: 1px solid var(--navy-border);
-      transition: background-color 0.3s ease;
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-canvas);
+      transition: background-color 0.25s ease;
       position: relative;
     }
 
     .service-item:hover {
-      background-color: rgba(11, 34, 59, 0.35);
+      background-color: var(--bg-surface);
     }
 
     .service-summary-btn {
       width: 100%;
       text-align: left;
-      padding: clamp(1.8rem, 3.2vw, 2.8rem) 0;
+      padding: clamp(1.8rem, 3vw, 2.7rem) 0;
       display: grid;
       grid-template-columns: 80px 1.5fr 1fr 40px;
       gap: 1.5rem;
@@ -650,8 +664,8 @@
     .service-num {
       font-family: var(--font-serif);
       font-size: 1.6rem;
-      color: var(--gold);
-      font-weight: 400;
+      color: var(--gold-accent);
+      font-weight: 600;
       letter-spacing: 0.05em;
     }
 
@@ -659,40 +673,41 @@
       font-family: var(--font-serif);
       font-size: clamp(1.4rem, 2.2vw, 2rem);
       line-height: 1.25;
-      font-weight: 500;
-      color: var(--text-main);
+      font-weight: 600;
+      color: var(--navy-primary);
       padding-right: 1rem;
       transition: color 0.25s ease;
     }
 
     .service-item:hover .service-name {
-      color: var(--gold-light);
+      color: var(--gold-accent);
     }
 
     .service-teaser {
-      font-size: 0.92rem;
-      color: var(--text-muted);
+      font-size: 0.94rem;
+      color: var(--slate-muted);
       line-height: 1.6;
     }
 
     .service-icon-toggle {
       width: 36px;
       height: 36px;
-      border: 1px solid var(--navy-border);
+      border: 1px solid var(--border-crisp);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
+      color: var(--navy-primary);
       font-size: 1.1rem;
       transition: var(--transition);
       margin-left: auto;
+      background: #FFFFFF;
     }
 
     .service-item.active .service-icon-toggle {
       transform: rotate(45deg);
-      background-color: var(--gold);
-      color: var(--navy-abyss);
-      border-color: var(--gold);
+      background-color: var(--navy-primary);
+      color: #FFFFFF;
+      border-color: var(--navy-primary);
     }
 
     .service-detail-panel {
@@ -702,9 +717,9 @@
     }
 
     .service-detail-content {
-      padding: 0 0 clamp(2rem, 3vw, 3rem) clamp(0rem, 6.5vw, 6rem);
-      color: var(--text-light-slate);
-      font-size: 0.96rem;
+      padding: 0 0 clamp(2rem, 3vw, 3rem) clamp(0rem, 6vw, 5.5rem);
+      color: var(--slate-body);
+      font-size: 0.98rem;
       line-height: 1.75;
     }
 
@@ -712,20 +727,22 @@
       list-style: none;
       margin: 1.25rem 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 0.75rem 1.5rem;
     }
 
     .service-detail-content li {
       position: relative;
       padding-left: 1.4rem;
+      font-weight: 500;
     }
 
     .service-detail-content li::before {
       content: "—";
       position: absolute;
       left: 0;
-      color: var(--gold);
+      color: var(--gold-accent);
+      font-weight: 700;
     }
 
     .process-stepper {
@@ -738,35 +755,36 @@
 
     .process-step-pill {
       font-size: 0.8rem;
-      padding: 0.45rem 0.9rem;
-      border: 1px solid var(--navy-border);
-      background: var(--navy-surface);
-      color: var(--gold-light);
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border-crisp);
+      background: #FFFFFF;
+      color: var(--navy-primary);
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     .process-arrow {
-      color: var(--gold);
-      font-size: 0.8rem;
+      color: var(--gold-accent);
+      font-size: 0.85rem;
+      font-weight: 700;
     }
 
     .disclaimer-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-size: 0.82rem;
+      color: var(--slate-muted);
       font-style: italic;
       margin-top: 1rem;
       padding-left: 1rem;
-      border-left: 2px solid var(--gold);
+      border-left: 2px solid var(--gold-accent);
     }
 
     /* ==========================================================
-       END-TO-END BUSINESS HAND-HOLDING (Horizontal/Vertical Timeline)
+       END-TO-END BUSINESS HAND-HOLDING
        ========================================================== */
     .journey-section {
       padding: clamp(5rem, 8vw, 8.5rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
-      background: var(--navy-deep);
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-surface);
       position: relative;
     }
 
@@ -785,8 +803,8 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: var(--gold);
-      opacity: 0.35;
+      background: var(--navy-primary);
+      opacity: 0.2;
       z-index: 1;
     }
 
@@ -807,54 +825,55 @@
     .node-dot {
       width: 48px;
       height: 48px;
-      background: var(--navy-abyss);
-      border: 1px solid var(--gold);
+      background: var(--bg-canvas);
+      border: 1.5px solid var(--navy-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: var(--gold-light);
-      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--navy-primary);
+      font-weight: 700;
       transition: var(--transition);
     }
 
     .journey-node:hover .node-dot {
-      background: var(--gold);
-      color: var(--navy-abyss);
+      background: var(--navy-primary);
+      color: #FFFFFF;
     }
 
     .journey-node-title {
       font-family: var(--font-serif);
       font-size: 1.18rem;
       line-height: 1.3;
-      font-weight: 600;
-      color: var(--text-main);
+      font-weight: 700;
+      color: var(--navy-primary);
       margin-bottom: 0.75rem;
       letter-spacing: 0.02em;
     }
 
     .journey-node-desc {
-      font-size: 0.86rem;
-      color: var(--text-muted);
+      font-size: 0.88rem;
+      color: var(--slate-muted);
       line-height: 1.6;
     }
 
     /* ==========================================================
-       APPROACH SECTION (Editorial oversized words)
+       APPROACH SECTION
        ========================================================== */
     .approach-section {
       padding: clamp(5rem, 8vw, 8rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-canvas);
     }
 
     .approach-sequence {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
+      gap: 1.5rem;
       margin: clamp(2.5rem, 4vw, 4rem) 0;
-      border-top: 1px solid var(--navy-border-subtle);
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-top: 1px solid var(--border-crisp);
+      border-bottom: 1px solid var(--border-crisp);
       padding: 3rem 0;
     }
 
@@ -862,36 +881,35 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-right: 1rem;
     }
 
     .step-label {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      color: var(--gold-accent);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
     }
 
     .step-word {
       font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 2.5vw, 2.5rem);
-      color: #FFFFFF;
-      font-weight: 600;
+      font-size: clamp(1.7rem, 2.5vw, 2.6rem);
+      color: var(--navy-primary);
+      font-weight: 700;
       letter-spacing: 0.02em;
     }
 
     .approach-copy-block {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       text-align: center;
     }
 
     .approach-copy {
-      font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+      font-size: clamp(1.1rem, 1.4vw, 1.32rem);
       line-height: 1.8;
-      color: var(--text-light-slate);
-      font-weight: 300;
+      color: var(--slate-body);
+      font-weight: 400;
     }
 
     /* ==========================================================
@@ -899,8 +917,8 @@
        ========================================================== */
     .markets-section {
       padding: clamp(5rem, 8vw, 8.5rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
-      background: radial-gradient(ellipse at 70% 50%, rgba(11, 34, 59, 0.45) 0%, var(--navy-abyss) 70%);
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-surface);
       position: relative;
     }
 
@@ -914,7 +932,7 @@
     .markets-list-stack {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1rem;
       margin-top: 2.5rem;
     }
 
@@ -923,36 +941,36 @@
       align-items: baseline;
       justify-content: space-between;
       padding: 1.25rem 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
     }
 
     .market-name {
       font-family: var(--font-serif);
       font-size: clamp(1.4rem, 2vw, 1.85rem);
-      color: var(--text-main);
-      letter-spacing: 0.03em;
+      color: var(--navy-primary);
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .market-tag {
       font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
+      color: var(--gold-accent);
+      font-weight: 700;
     }
 
     .market-map-graphic {
       width: 100%;
-      height: auto;
-      border: 1px solid var(--navy-border);
+      border: 1px solid var(--border-crisp);
       padding: clamp(1.5rem, 3vw, 2.5rem);
-      background: rgba(7, 26, 46, 0.4);
-      position: relative;
+      background: var(--bg-canvas);
+      box-shadow: 0 8px 30px rgba(10, 25, 47, 0.04);
     }
 
     .market-clarification {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--slate-muted);
       margin-top: 1.5rem;
       line-height: 1.6;
     }
@@ -962,8 +980,8 @@
        ========================================================== */
     .about-section {
       padding: clamp(5rem, 8vw, 8.5rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
-      background: var(--navy-deep);
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-canvas);
     }
 
     .about-grid {
@@ -974,16 +992,17 @@
     }
 
     .about-monogram-box {
-      border: 1px solid var(--navy-border);
+      border: 1px solid var(--border-crisp);
       padding: clamp(2rem, 4vw, 3.5rem);
-      background: var(--navy-abyss);
+      background: #FFFFFF;
+      box-shadow: 0 10px 30px rgba(10, 25, 47, 0.05);
       position: relative;
     }
 
     .monogram-badge {
       font-family: var(--font-serif);
       font-size: 3.5rem;
-      color: var(--gold);
+      color: var(--gold-accent);
       line-height: 1;
       margin-bottom: 1.5rem;
       font-weight: 700;
@@ -992,8 +1011,8 @@
     .about-formal-name {
       font-family: var(--font-serif);
       font-size: clamp(1.8rem, 2.4vw, 2.3rem);
-      color: #FFFFFF;
-      font-weight: 600;
+      color: var(--navy-primary);
+      font-weight: 700;
       line-height: 1.2;
       margin-bottom: 0.6rem;
     }
@@ -1002,18 +1021,18 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.4rem;
       margin-top: 1.25rem;
       padding-top: 1.25rem;
-      border-top: 1px solid var(--navy-border-subtle);
+      border-top: 1px solid var(--border-crisp);
     }
 
     .about-designations li {
       font-size: 0.88rem;
       letter-spacing: 0.08em;
-      color: var(--gold-light);
+      color: var(--navy-primary);
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .about-narrative {
@@ -1023,28 +1042,29 @@
     }
 
     .about-narrative p {
-      font-size: clamp(1rem, 1.2vw, 1.12rem);
+      font-size: clamp(1.02rem, 1.2vw, 1.14rem);
       line-height: 1.85;
-      color: var(--text-light-slate);
-      font-weight: 300;
+      color: var(--slate-body);
+      font-weight: 400;
     }
 
     .academic-callout {
       padding: 1.5rem;
-      background: rgba(201, 154, 50, 0.05);
-      border-left: 2px solid var(--gold);
-      color: var(--text-main);
+      background: var(--gold-surface);
+      border-left: 3px solid var(--gold-accent);
+      color: var(--navy-primary);
       font-size: 1.02rem;
       line-height: 1.7;
+      font-weight: 500;
     }
 
     /* ==========================================================
-       PROFESSIONAL FOCUS TICKER STRIP
+       PROFESSIONAL FOCUS STRIP
        ========================================================== */
     .focus-strip {
       padding: 2.2rem 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
-      background: var(--navy-abyss);
+      border-bottom: 1px solid var(--border-crisp);
+      background: #FFFFFF;
       overflow: hidden;
     }
 
@@ -1055,10 +1075,11 @@
       flex-wrap: wrap;
       gap: 1rem 2rem;
       list-style: none;
-      color: var(--text-main);
+      color: var(--navy-primary);
       font-family: var(--font-serif);
       font-size: 1.15rem;
       letter-spacing: 0.05em;
+      font-weight: 600;
     }
 
     .focus-list li {
@@ -1069,27 +1090,26 @@
 
     .focus-list li:not(:last-child)::after {
       content: "◆";
-      color: var(--gold);
+      color: var(--gold-accent);
       font-size: 0.55rem;
-      opacity: 0.8;
     }
 
     /* ==========================================================
        PHILOSOPHY STATEMENT
        ========================================================== */
     .philosophy-section {
-      padding: clamp(6rem, 10vw, 10rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      padding: clamp(6rem, 10vw, 9.5rem) 0;
+      border-bottom: 1px solid var(--border-crisp);
       text-align: center;
-      position: relative;
+      background-color: var(--bg-surface);
     }
 
     .philosophy-quote {
       font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+      font-size: clamp(1.9rem, 3.8vw, 3.2rem);
       line-height: 1.3;
-      font-weight: 400;
-      color: #FFFFFF;
+      font-weight: 500;
+      color: var(--navy-primary);
       max-width: 980px;
       margin: 0 auto 2rem auto;
       font-style: italic;
@@ -1098,10 +1118,10 @@
     .philosophy-sub {
       font-size: clamp(1rem, 1.25vw, 1.2rem);
       line-height: 1.8;
-      color: var(--text-muted);
+      color: var(--slate-muted);
       max-width: 740px;
       margin: 0 auto;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     /* ==========================================================
@@ -1109,20 +1129,21 @@
        ========================================================== */
     .audience-section {
       padding: clamp(5rem, 8vw, 8rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-canvas);
     }
 
     .audience-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1px;
-      background: var(--navy-border-subtle);
-      border: 1px solid var(--navy-border-subtle);
+      background: var(--border-crisp);
+      border: 1px solid var(--border-crisp);
       margin-top: 3.5rem;
     }
 
     .audience-cell {
-      background: var(--navy-abyss);
+      background: #FFFFFF;
       padding: clamp(2rem, 3vw, 2.8rem);
       transition: var(--transition);
       display: flex;
@@ -1132,24 +1153,24 @@
     }
 
     .audience-cell:hover {
-      background: var(--navy-surface);
+      background: var(--bg-subtle);
       transform: translateY(-2px);
     }
 
     .audience-num {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
-      color: var(--gold);
-      font-weight: 600;
+      color: var(--gold-accent);
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
     .audience-name {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       line-height: 1.3;
-      color: #FFFFFF;
-      font-weight: 500;
+      color: var(--navy-primary);
+      font-weight: 600;
     }
 
     /* ==========================================================
@@ -1157,9 +1178,9 @@
        ========================================================== */
     .cta-closing {
       padding: clamp(6rem, 9vw, 9.5rem) 0;
-      border-bottom: 1px solid var(--navy-border-subtle);
+      border-bottom: 1px solid var(--border-crisp);
       position: relative;
-      background: radial-gradient(circle at 50% 100%, rgba(11, 34, 59, 0.5) 0%, var(--navy-abyss) 80%);
+      background: radial-gradient(circle at 50% 100%, var(--gold-surface) 0%, var(--bg-surface) 75%);
       text-align: center;
       overflow: hidden;
     }
@@ -1175,21 +1196,21 @@
       font-family: var(--font-serif);
       font-size: clamp(2.4rem, 5vw, 4.2rem);
       line-height: 1.1;
-      color: #FFFFFF;
+      color: var(--navy-primary);
       margin-bottom: 1.75rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .cta-headline .gold {
-      color: var(--gold-light);
+      color: var(--gold-accent);
       font-style: italic;
     }
 
     .cta-lead {
       font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-      color: var(--text-light-slate);
+      color: var(--slate-body);
       line-height: 1.75;
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 3rem;
     }
 
@@ -1205,10 +1226,10 @@
        FOOTER
        ========================================================== */
     .site-footer {
-      background: var(--navy-abyss);
+      background: var(--bg-canvas);
       padding: 5rem 0 3rem 0;
-      color: var(--text-muted);
-      border-top: 1px solid var(--navy-border-subtle);
+      color: var(--slate-muted);
+      border-top: 1px solid var(--border-crisp);
     }
 
     .footer-grid {
@@ -1221,40 +1242,46 @@
     .footer-brand-title {
       font-family: var(--font-serif);
       font-size: 1.5rem;
-      color: #FFFFFF;
+      color: var(--navy-primary);
       letter-spacing: 0.15em;
       margin-bottom: 0.5rem;
+      font-weight: 700;
     }
 
     .footer-author {
-      font-size: 0.92rem;
-      color: var(--text-light-slate);
-      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy-primary);
+      font-weight: 700;
       margin-bottom: 0.35rem;
     }
 
     .footer-roles {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       line-height: 1.6;
-      color: var(--text-muted);
+      color: var(--slate-body);
     }
 
     .footer-phone-cta {
       display: inline-block;
       margin-top: 1.25rem;
       font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--gold-light);
+      font-size: 1.45rem;
+      color: var(--gold-accent);
       letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    .footer-phone-cta:hover {
+      color: var(--navy-primary);
     }
 
     .footer-nav-col h4 {
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-accent);
       margin-bottom: 1.25rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .footer-nav-col ul {
@@ -1265,35 +1292,36 @@
     }
 
     .footer-nav-col a {
-      font-size: 0.9rem;
-      color: var(--text-light-slate);
+      font-size: 0.92rem;
+      color: var(--slate-body);
+      font-weight: 500;
     }
 
     .footer-nav-col a:hover {
-      color: var(--gold);
+      color: var(--gold-accent);
     }
 
     .footer-regions-text {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       line-height: 1.7;
-      color: var(--text-light-slate);
+      color: var(--slate-body);
     }
 
     .footer-bottom-bar {
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid var(--border-crisp);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.25rem;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.15em;
     }
 
     .footer-creed {
-      color: var(--gold);
-      font-weight: 600;
+      color: var(--navy-primary);
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.25em;
     }
@@ -1304,7 +1332,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(2, 7, 13, 0.88);
+      background: rgba(10, 25, 47, 0.6);
       backdrop-filter: blur(8px);
       z-index: 200;
       display: none;
@@ -1318,13 +1346,13 @@
     }
 
     .modal-dialog {
-      background: var(--navy-surface);
-      border: 1px solid var(--navy-border);
+      background: #FFFFFF;
+      border: 1px solid var(--border-crisp);
       width: 100%;
       max-width: 560px;
       padding: clamp(2rem, 4vw, 3rem);
       position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 25px 50px -12px rgba(10, 25, 47, 0.25);
     }
 
     .modal-close-btn {
@@ -1332,13 +1360,13 @@
       top: 1.5rem;
       right: 1.5rem;
       font-size: 1.5rem;
-      color: var(--text-muted);
+      color: var(--slate-muted);
       cursor: pointer;
       line-height: 1;
     }
 
     .modal-close-btn:hover {
-      color: var(--gold);
+      color: var(--navy-primary);
     }
 
     .form-group {
@@ -1350,29 +1378,30 @@
       font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--navy-primary);
       margin-bottom: 0.4rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 0.85rem 1rem;
-      background: var(--navy-abyss);
-      border: 1px solid var(--navy-border-subtle);
-      color: var(--text-main);
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-crisp);
+      color: var(--navy-primary);
       font-family: var(--font-sans);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       outline: none;
       transition: var(--transition);
     }
 
     .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--gold);
+      border-color: var(--navy-primary);
+      background: #FFFFFF;
     }
 
     /* ==========================================================
-       RESPONSIVE ADAPTATIONS (Strict Mobile-First Integrity)
+       RESPONSIVE ADAPTATIONS
        ========================================================== */
     @media (max-width: 1024px) {
       .journey-track {
@@ -1418,7 +1447,7 @@
         grid-template-columns: 50px 1fr 36px;
       }
       .service-teaser {
-        display: none; /* Revealed in expanded state on mobile */
+        display: none;
       }
       .service-detail-content {
         padding-left: 0;
@@ -1449,7 +1478,7 @@
         bottom: 0;
         left: 24px;
         width: 1px;
-        background: var(--gold);
+        background: var(--navy-primary);
         opacity: 0.3;
       }
       .journey-node {
@@ -1460,7 +1489,7 @@
         gap: 1.5rem;
       }
       .approach-step {
-        border-bottom: 1px solid var(--navy-border-subtle);
+        border-bottom: 1px solid var(--border-crisp);
         padding-bottom: 1rem;
       }
       .focus-list {
@@ -1527,7 +1556,7 @@
           </nav>
 
           <div class="header-actions">
-            <button class="btn btn-gold nav-cta-btn" onclick="openConsultationModal()">Book a Consultation</button>
+            <button class="btn btn-navy nav-cta-btn" onclick="openConsultationModal()">Book a Consultation</button>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
               <span></span>
               <span></span>
@@ -1537,7 +1566,7 @@
       </div>
     </header>
 
-    <!-- Mobile Slide-out Menu -->
+    <!-- Mobile Drawer -->
     <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
       <ul class="mobile-nav-list">
         <li><a href="#hero" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a></li>
@@ -1547,7 +1576,7 @@
         <li><a href="#markets" class="mobile-nav-link" onclick="closeMobileMenu()">Markets</a></li>
         <li><a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a></li>
       </ul>
-      <button class="btn btn-gold" style="width: 100%;" onclick="closeMobileMenu(); openConsultationModal();">Book a Consultation</button>
+      <button class="btn btn-navy" style="width: 100%;" onclick="closeMobileMenu(); openConsultationModal();">Book a Consultation</button>
     </div>
 
     <main>
@@ -1566,30 +1595,30 @@
                 Helping manufacturers, traders, entrepreneurs, and growing businesses explore international trade, develop export opportunities, source globally, and establish business operations in selected international markets.
               </p>
               <div class="hero-buttons">
-                <a href="#services" class="btn btn-gold">Explore Our Services</a>
+                <a href="#services" class="btn btn-navy">Explore Our Services</a>
                 <button class="btn btn-outline" onclick="openConsultationModal()">Book a Consultation</button>
               </div>
             </div>
 
-            <!-- Restrained Armillary / Globe Visual Inspired by Brand Emblem -->
+            <!-- Armillary / Meridian Visual -->
             <div class="hero-visual-wrapper">
               <div class="globe-stage" aria-hidden="true">
                 <svg class="orbital-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Outer latitude ring -->
-                  <circle cx="250" cy="250" r="230" stroke="#C99A32" stroke-width="1" stroke-dasharray="4 6" opacity="0.4" />
+                  <!-- Outer latitude coordinate ring -->
+                  <circle cx="250" cy="250" r="230" stroke="#0A192F" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.25" />
                   <!-- Longitude arcs -->
-                  <ellipse cx="250" cy="250" rx="230" ry="110" stroke="#C99A32" stroke-width="1" opacity="0.3" transform="rotate(-25 250 250)" />
-                  <ellipse cx="250" cy="250" rx="230" ry="60" stroke="#C99A32" stroke-width="1.2" opacity="0.5" transform="rotate(35 250 250)" />
-                  <ellipse cx="250" cy="250" rx="240" ry="240" stroke="#E8C66A" stroke-width="0.5" opacity="0.25" />
+                  <ellipse cx="250" cy="250" rx="230" ry="110" stroke="#9A7224" stroke-width="1" opacity="0.35" transform="rotate(-25 250 250)" />
+                  <ellipse cx="250" cy="250" rx="230" ry="60" stroke="#0A192F" stroke-width="1.2" opacity="0.35" transform="rotate(35 250 250)" />
+                  <ellipse cx="250" cy="250" rx="240" ry="240" stroke="#9A7224" stroke-width="0.75" opacity="0.2" />
                   <!-- Flight / Trade Route Path Vector -->
-                  <path d="M 60,320 Q 250,60 440,200" stroke="#C99A32" stroke-width="1.5" stroke-dasharray="6 6" fill="none" opacity="0.75" />
-                  <circle cx="440" cy="200" r="4" fill="#E8C66A" />
-                  <circle cx="60" cy="320" r="4" fill="#C99A32" />
-                  <circle cx="250" cy="115" r="3" fill="#FFFFFF" />
+                  <path d="M 60,320 Q 250,60 440,200" stroke="#9A7224" stroke-width="1.75" stroke-dasharray="6 6" fill="none" opacity="0.85" />
+                  <circle cx="440" cy="200" r="4.5" fill="#9A7224" />
+                  <circle cx="60" cy="320" r="4.5" fill="#0A192F" />
+                  <circle cx="250" cy="115" r="3.5" fill="#9A7224" />
                 </svg>
 
                 <svg class="orbital-svg-counter" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="200" cy="200" rx="190" ry="80" stroke="#8F9EAF" stroke-width="0.8" opacity="0.2" transform="rotate(70 200 200)" />
+                  <ellipse cx="200" cy="200" rx="190" ry="80" stroke="#5E6D7E" stroke-width="0.8" opacity="0.2" transform="rotate(70 200 200)" />
                 </svg>
 
                 <div class="globe-emblem-core">
@@ -1662,13 +1691,13 @@
                 <div class="service-detail-content">
                   <p>Comprehensive guidance for businesses looking to purchase and import mission-critical goods safely and economically:</p>
                   <ul>
-                    <li>Machinery & Industrial Equipment</li>
-                    <li>Raw Materials & Industrial Inputs</li>
-                    <li>Products & Finished Goods</li>
-                    <li>Technology & Business Equipment</li>
+                    <li>Machinery &amp; Industrial Equipment</li>
+                    <li>Raw Materials &amp; Industrial Inputs</li>
+                    <li>Products &amp; Finished Goods</li>
+                    <li>Technology &amp; Business Equipment</li>
                     <li>Internationally Sourced Products</li>
                   </ul>
-                  <p>Consultancy support includes targeted supplier identification, commercial & pricing evaluation, rigorous sourcing strategy, end-to-end import-process guidance, documentation accuracy, and multi-modal logistics coordination.</p>
+                  <p>Consultancy support includes targeted supplier identification, commercial &amp; pricing evaluation, rigorous sourcing strategy, end-to-end import-process guidance, documentation accuracy, and multi-modal logistics coordination.</p>
                 </div>
               </div>
             </article>
@@ -1715,10 +1744,10 @@
                 <div class="service-detail-content">
                   <p>Consultancy for entrepreneurs and established enterprises planning to establish, license, or expand business entities and distribution hubs in selected high-potential markets:</p>
                   <ul>
-                    <li>Dubai / UAE (Free Zones & Mainland Advisory)</li>
-                    <li>United States (Entity Structuring & Commercial Entry)</li>
-                    <li>Canada (Expansion & Trade Ingress)</li>
-                    <li>Selected African Markets (Strategic Sourcing & Commercial Hubs)</li>
+                    <li>Dubai / UAE (Free Zones &amp; Mainland Advisory)</li>
+                    <li>United States (Entity Structuring &amp; Commercial Entry)</li>
+                    <li>Canada (Expansion &amp; Trade Ingress)</li>
+                    <li>Selected African Markets (Strategic Sourcing &amp; Commercial Hubs)</li>
                   </ul>
                   <p>We provide operational scoping, jurisdiction evaluation, regulatory compliance advisory, and local partner identification.</p>
                 </div>
@@ -1737,13 +1766,13 @@
                 <div class="service-detail-content">
                   <p>Specialized institutional knowledge covering critical dimensions of international trade mechanics:</p>
                   <ul>
-                    <li>International Market Research & Demand Analysis</li>
-                    <li>Buyer & Supplier Relationship Development</li>
-                    <li>Trade Strategy & Incoterms Commercial Structuring</li>
+                    <li>International Market Research &amp; Demand Analysis</li>
+                    <li>Buyer &amp; Supplier Relationship Development</li>
+                    <li>Trade Strategy &amp; Incoterms Commercial Structuring</li>
                     <li>Complete Export-Import Documentation Protocols</li>
-                    <li>Freight, Customs & Logistics Coordination</li>
+                    <li>Freight, Customs &amp; Logistics Coordination</li>
                     <li>Cross-Cultural International Business Communication</li>
-                    <li>Market Entry Scoping & Risk Mitigation Planning</li>
+                    <li>Market Entry Scoping &amp; Risk Mitigation Planning</li>
                   </ul>
                 </div>
               </div>
@@ -1762,7 +1791,7 @@
                   <p>Assisting expanding businesses in exploring suitable financing mechanisms to support shipment cycles and operational scaling:</p>
                   <ul>
                     <li>Working Capital Exploration</li>
-                    <li>Trade Finance & Letters of Credit Familiarization</li>
+                    <li>Trade Finance &amp; Letters of Credit Familiarization</li>
                     <li>Export Order Funding Structures</li>
                     <li>Institutional Financing Options via Relevant Financial Bodies</li>
                   </ul>
@@ -1787,7 +1816,6 @@
           <p class="section-desc">A disciplined six-phase trajectory engineered to minimize friction and protect capital at every juncture.</p>
 
           <div class="journey-track">
-            <!-- Node 01 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">01</div>
@@ -1796,16 +1824,14 @@
               <p class="journey-node-desc">Evaluating product competitiveness, operational capacities, and international viability.</p>
             </div>
 
-            <!-- Node 02 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">02</div>
               </div>
-              <h3 class="journey-node-title">MARKET & PRODUCT STRATEGY</h3>
+              <h3 class="journey-node-title">MARKET &amp; PRODUCT STRATEGY</h3>
               <p class="journey-node-desc">Target country profiling, tariff evaluation, certification compliance, and positioning.</p>
             </div>
 
-            <!-- Node 03 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">03</div>
@@ -1814,25 +1840,22 @@
               <p class="journey-node-desc">Vetting foreign buyers or overseas manufacturing partners with verified commercial standing.</p>
             </div>
 
-            <!-- Node 04 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">04</div>
               </div>
-              <h3 class="journey-node-title">TRADE & DOCUMENTATION</h3>
+              <h3 class="journey-node-title">TRADE &amp; DOCUMENTATION</h3>
               <p class="journey-node-desc">Incoterms selection, pro-forma structuring, banking compliance, and customs documentation.</p>
             </div>
 
-            <!-- Node 05 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">05</div>
               </div>
-              <h3 class="journey-node-title">LOGISTICS & EXECUTION</h3>
+              <h3 class="journey-node-title">LOGISTICS &amp; EXECUTION</h3>
               <p class="journey-node-desc">Freight alignment, marine insurance, inspection monitoring, and customs clearance protocols.</p>
             </div>
 
-            <!-- Node 06 -->
             <div class="journey-node">
               <div class="journey-node-header">
                 <div class="node-dot">06</div>
@@ -1901,23 +1924,23 @@
               <div class="markets-list-stack">
                 <div class="market-entry">
                   <span class="market-name">India</span>
-                  <span class="market-tag">Manufacturing & Export Origin Hub</span>
+                  <span class="market-tag">Manufacturing &amp; Export Origin Hub</span>
                 </div>
                 <div class="market-entry">
                   <span class="market-name">United Arab Emirates (UAE)</span>
-                  <span class="market-tag">Middle East Re-Export & Setup Gateway</span>
+                  <span class="market-tag">Middle East Re-Export &amp; Setup Gateway</span>
                 </div>
                 <div class="market-entry">
                   <span class="market-name">United States of America</span>
-                  <span class="market-tag">High-Volume Consumer & B2B Ingress</span>
+                  <span class="market-tag">High-Volume Consumer &amp; B2B Ingress</span>
                 </div>
                 <div class="market-entry">
                   <span class="market-name">Canada</span>
-                  <span class="market-tag">North American Trade & Corporate Sourcing</span>
+                  <span class="market-tag">North American Trade &amp; Corporate Sourcing</span>
                 </div>
                 <div class="market-entry">
                   <span class="market-name">Selected African Markets</span>
-                  <span class="market-tag">Emerging Trade & Industrial Supply Corridors</span>
+                  <span class="market-tag">Emerging Trade &amp; Industrial Supply Corridors</span>
                 </div>
               </div>
 
@@ -1926,41 +1949,40 @@
               </p>
             </div>
 
-            <!-- Stylized Global Meridian Graphic -->
             <div>
               <div class="market-map-graphic">
                 <svg viewBox="0 0 540 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%;">
-                  <!-- World Grid Lines -->
-                  <line x1="20" y1="60" x2="520" y2="60" stroke="#C99A32" stroke-width="0.5" opacity="0.2" />
-                  <line x1="20" y1="160" x2="520" y2="160" stroke="#C99A32" stroke-width="0.75" opacity="0.3" stroke-dasharray="3 3" />
-                  <line x1="20" y1="260" x2="520" y2="260" stroke="#C99A32" stroke-width="0.5" opacity="0.2" />
+                  <!-- Coordinate Grid Lines -->
+                  <line x1="20" y1="60" x2="520" y2="60" stroke="#0A192F" stroke-width="0.5" opacity="0.15" />
+                  <line x1="20" y1="160" x2="520" y2="160" stroke="#0A192F" stroke-width="0.75" opacity="0.2" stroke-dasharray="3 3" />
+                  <line x1="20" y1="260" x2="520" y2="260" stroke="#0A192F" stroke-width="0.5" opacity="0.15" />
                   
-                  <line x1="100" y1="20" x2="100" y2="300" stroke="#C99A32" stroke-width="0.5" opacity="0.2" />
-                  <line x1="270" y1="20" x2="270" y2="300" stroke="#C99A32" stroke-width="0.75" opacity="0.25" />
-                  <line x1="440" y1="20" x2="440" y2="300" stroke="#C99A32" stroke-width="0.5" opacity="0.2" />
+                  <line x1="100" y1="20" x2="100" y2="300" stroke="#0A192F" stroke-width="0.5" opacity="0.15" />
+                  <line x1="270" y1="20" x2="270" y2="300" stroke="#0A192F" stroke-width="0.75" opacity="0.2" />
+                  <line x1="440" y1="20" x2="440" y2="300" stroke="#0A192F" stroke-width="0.5" opacity="0.15" />
 
                   <!-- Nodes and Corridors -->
                   <!-- North America (USA/Canada) -->
-                  <circle cx="120" cy="110" r="5" fill="#E8C66A" />
-                  <text x="132" y="114" fill="#C4CED8" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">USA / CANADA</text>
+                  <circle cx="120" cy="110" r="5" fill="#9A7224" />
+                  <text x="132" y="114" fill="#0A192F" font-size="11" font-weight="600" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">USA / CANADA</text>
 
                   <!-- UAE / Gulf -->
-                  <circle cx="310" cy="150" r="5" fill="#E8C66A" />
-                  <text x="322" y="148" fill="#C4CED8" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">UAE (DUBAI)</text>
+                  <circle cx="310" cy="150" r="5" fill="#9A7224" />
+                  <text x="322" y="148" fill="#0A192F" font-size="11" font-weight="600" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">UAE (DUBAI)</text>
 
                   <!-- India -->
-                  <circle cx="370" cy="170" r="6" fill="#C99A32" />
-                  <circle cx="370" cy="170" r="12" stroke="#C99A32" stroke-width="0.75" opacity="0.6" />
-                  <text x="385" y="174" fill="#FFFFFF" font-weight="600" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">INDIA</text>
+                  <circle cx="370" cy="170" r="6" fill="#0A192F" />
+                  <circle cx="370" cy="170" r="12" stroke="#9A7224" stroke-width="1" opacity="0.8" />
+                  <text x="385" y="174" fill="#0A192F" font-weight="700" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">INDIA</text>
 
                   <!-- Africa -->
-                  <circle cx="280" cy="210" r="4.5" fill="#E8C66A" />
-                  <text x="292" y="218" fill="#C4CED8" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">AFRICAN MARKETS</text>
+                  <circle cx="280" cy="210" r="4.5" fill="#9A7224" />
+                  <text x="292" y="218" fill="#0A192F" font-size="11" font-weight="600" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="1">AFRICAN MARKETS</text>
 
                   <!-- Trade Route Arcs -->
-                  <path d="M 370,170 C 340,130 320,135 310,150" stroke="#C99A32" stroke-width="1.5" stroke-dasharray="4 4" />
-                  <path d="M 310,150 C 220,100 160,95 120,110" stroke="#C99A32" stroke-width="1.2" stroke-dasharray="4 4" />
-                  <path d="M 370,170 C 340,210 310,215 280,210" stroke="#C99A32" stroke-width="1.2" stroke-dasharray="4 4" />
+                  <path d="M 370,170 C 340,130 320,135 310,150" stroke="#9A7224" stroke-width="1.5" stroke-dasharray="4 4" />
+                  <path d="M 310,150 C 220,100 160,95 120,110" stroke="#9A7224" stroke-width="1.2" stroke-dasharray="4 4" />
+                  <path d="M 370,170 C 340,210 310,215 280,210" stroke="#9A7224" stroke-width="1.2" stroke-dasharray="4 4" />
                 </svg>
               </div>
             </div>
@@ -1977,7 +1999,7 @@
             <div class="about-monogram-box">
               <div class="monogram-badge">AV</div>
               <h3 class="about-formal-name">DR. ARYANKUMAR VERMA</h3>
-              <p style="font-size: 0.85rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;">
+              <p style="font-size: 0.85rem; color: var(--gold-accent); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">
                 Doctor of Philosophy (Ph.D.) in Business Management
               </p>
               <ul class="about-designations">
@@ -2093,7 +2115,7 @@
               If you are a manufacturer, trader, entrepreneur, or established business owner, our consultancy is designed to support your international expansion journey.
             </p>
             <div class="cta-buttons-center">
-              <button class="btn btn-gold" onclick="openConsultationModal()">Book a Consultation</button>
+              <button class="btn btn-navy" onclick="openConsultationModal()">Book a Consultation</button>
               <a href="tel:9327155550" class="btn btn-outline">Call 9327155550</a>
             </div>
           </div>
@@ -2139,7 +2161,7 @@
             <p class="footer-regions-text">
               India | UAE | USA | Canada | Selected African Markets
             </p>
-            <p class="footer-regions-text" style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+            <p class="footer-regions-text" style="margin-top: 1rem; font-size: 0.82rem; color: var(--slate-muted);">
               Professional advisory services provided across commercial strategy, global sourcing, documentation, and market entry.
             </p>
           </div>
@@ -2165,10 +2187,10 @@
     <div class="modal-dialog">
       <button class="modal-close-btn" onclick="closeConsultationModal()" aria-label="Close Modal">&times;</button>
       <span class="eyebrow">Direct Engagement</span>
-      <h3 id="modalHeading" style="font-family: var(--font-serif); font-size: 1.8rem; color: #FFFFFF; margin-bottom: 0.5rem;">
+      <h3 id="modalHeading" style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--navy-primary); margin-bottom: 0.5rem; font-weight: 700;">
         Request a Consultation
       </h3>
-      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+      <p style="font-size: 0.88rem; color: var(--slate-muted); margin-bottom: 1.5rem;">
         Connect directly with Dr. Aryankumar Verma for tailored international trade guidance.
       </p>
 
@@ -2199,7 +2221,7 @@
           <textarea id="clientMessage" class="form-textarea" rows="3" placeholder="Specify products, target regions, or sourcing needs..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-gold" style="width: 100%;">Submit Consultation Request</button>
+        <button type="submit" class="btn btn-navy" style="width: 100%;">Submit Consultation Request</button>
       </form>
     </div>
   </div>
@@ -2291,8 +2313,7 @@
       const phone = document.getElementById('clientPhone').value;
       const service = document.getElementById('serviceSelect').value;
 
-      // Construct direct tel inquiry prompt or mailto
-      const confirmationMsg = `Thank you, ${name}. Your consultation request regarding "${service}" has been recorded. You can also directly reach Dr. Aryankumar Verma at 9327155550.`;
+      const confirmationMsg = `Thank you, ${name}. Your consultation inquiry regarding "${service}" has been recorded. You can also reach Dr. Aryankumar Verma directly at 9327155550.`;
       alert(confirmationMsg);
       closeConsultationModal();
       document.getElementById('consultForm').reset();
