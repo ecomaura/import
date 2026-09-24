@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Aryankumar Verma | International Trade & Export Business Consultant</title>
+  <title>Dr. Aryankumar Verma — International Trade & Export Consultancy</title>
   
-  <!-- Google Fonts: Editorial Serif + Clean Sans -->
+  <!-- Editorial Typography: Cormorant Garamond & Syne & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       CSS VARIABLES & RESET
+       DESIGN TOKENS & SYSTEM
        ========================================================================== */
     :root {
-      --navy-950: #0a1118;
-      --navy-900: #0e1724;
-      --navy-800: #162235;
-      --navy-700: #22324b;
-      --charcoal: #2a2e35;
-      --muted-gray: #6b7280;
-      --border-subtle: #e2e8f0;
-      --border-dark: #1f2d42;
-      --warm-white: #fbfbf9;
-      --ivory: #f4f4f0;
-      --pure-white: #ffffff;
-      --gold-400: #c5a059;
-      --gold-500: #b38c43;
-      --gold-light: #f7f3eb;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-display: 'Cinzel', serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      --container-max: 1240px;
+      --bg-pitch: #06090e;
+      --bg-midnight: #0c121b;
+      --bg-slate: #151d28;
+      --bg-ivory: #f8f7f4;
+      --bg-sand: #eeece5;
+      
+      --gold-primary: #d4af37;
+      --gold-muted: #bda25b;
+      --gold-deep: #8a6d2b;
+      --gold-glow: rgba(212, 175, 55, 0.15);
+
+      --text-white: #fbfbfb;
+      --text-light-muted: #9ba6b5;
+      --text-dark: #121820;
+      --text-dark-muted: #5e6875;
+
+      --border-light: rgba(255, 255, 255, 0.08);
+      --border-light-accent: rgba(212, 175, 55, 0.25);
+      --border-dark-line: rgba(18, 24, 32, 0.12);
+
+      --font-editorial: 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --cubic: cubic-bezier(0.19, 1, 0.22, 1);
+      --dur-fast: 0.25s;
+      --dur-norm: 0.5s;
+      --dur-slow: 0.9s;
     }
 
     *, *::before, *::after {
@@ -44,29 +53,29 @@
 
     html {
       scroll-behavior: smooth;
+      background-color: var(--bg-pitch);
+      color: var(--text-white);
+      font-family: var(--font-body);
       font-size: 16px;
-      background-color: var(--warm-white);
-      color: var(--navy-950);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     body {
-      font-family: var(--font-sans);
-      line-height: 1.65;
-      font-weight: 400;
-      color: var(--navy-900);
-      background-color: var(--warm-white);
+      background-color: var(--bg-pitch);
       overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    ::selection {
+      background: var(--gold-primary);
+      color: var(--bg-pitch);
     }
 
     a {
       color: inherit;
       text-decoration: none;
-      transition: var(--transition);
-    }
-
-    ul, ol {
-      list-style: none;
+      transition: color var(--dur-fast) ease;
     }
 
     img {
@@ -75,1289 +84,1472 @@
       display: block;
     }
 
-    /* ==========================================================================
-       TYPOGRAPHY
-       ========================================================================== */
-    h1, h2, h3, h4, .serif-heading {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      color: var(--navy-900);
+    button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
     }
 
-    .eyebrow {
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--gold-500);
-      margin-bottom: 0.75rem;
-      display: inline-block;
-    }
-
-    .eyebrow-dark {
-      color: var(--gold-400);
-    }
-
-    p {
-      color: #4a5568;
-      font-size: 1.05rem;
-    }
-
-    .lead-text {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      color: #374151;
-    }
-
-    /* ==========================================================================
-       LAYOUT UTILITIES
-       ========================================================================== */
-    .container {
-      max-width: var(--container-max);
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+    /* Container Utility */
+    .wrap {
       width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: clamp(1.5rem, 5vw, 4.5rem);
+      padding-right: clamp(1.5rem, 5vw, 4.5rem);
     }
 
-    .section-py {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+    .wrap-fluid {
+      width: 100%;
+      padding-left: clamp(1.5rem, 4vw, 3rem);
+      padding-right: clamp(1.5rem, 4vw, 3rem);
     }
 
-    .section-py-sm {
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
+    /* Editorial Section Spacing */
+    .section-sp {
+      padding-top: clamp(6rem, 12vw, 11rem);
+      padding-bottom: clamp(6rem, 12vw, 11rem);
     }
 
-    .bg-ivory {
-      background-color: var(--ivory);
+    .section-sp-sm {
+      padding-top: clamp(4rem, 8vw, 6.5rem);
+      padding-bottom: clamp(4rem, 8vw, 6.5rem);
     }
 
-    .bg-white {
-      background-color: var(--pure-white);
+    /* Typography Hierarchy */
+    .font-editorial { font-family: var(--font-editorial); }
+    .font-display { font-family: var(--font-display); }
+    .font-sans { font-family: var(--font-body); }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-primary);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
     }
 
-    .bg-navy {
-      background-color: var(--navy-900);
-      color: var(--warm-white);
+    .eyebrow-tag::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold-primary);
     }
 
-    .bg-navy h1, .bg-navy h2, .bg-navy h3, .bg-navy h4 {
-      color: var(--warm-white);
+    .editorial-h1 {
+      font-family: var(--font-editorial);
+      font-size: clamp(3rem, 6.8vw, 6.8rem);
+      line-height: 0.94;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
 
-    .bg-navy p {
-      color: #9aa8bc;
+    .editorial-h2 {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.015em;
     }
 
-    .border-top {
-      border-top: 1px solid var(--border-subtle);
+    .serif-italic {
+      font-style: italic;
+      color: var(--gold-primary);
+      font-weight: 400;
     }
 
-    .border-top-dark {
-      border-top: 1px solid var(--border-dark);
-    }
-
-    /* ==========================================================================
-       BUTTONS & CTAs
-       ========================================================================== */
-    .btn {
+    /* Magnetic CTA Button */
+    .btn-lux {
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.75rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border-radius: 2px;
-      transition: var(--transition);
-      cursor: pointer;
-      text-align: center;
-      border: 1px solid transparent;
-      white-space: nowrap;
+      gap: 1rem;
+      padding: 1.25rem 2.75rem;
+      background: var(--gold-primary);
+      color: var(--bg-pitch);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      overflow: hidden;
+      transition: all var(--dur-norm) var(--cubic);
+      border: 1px solid var(--gold-primary);
+      z-index: 1;
     }
 
-    .btn-gold {
-      background-color: var(--gold-500);
-      color: var(--pure-white);
-      border-color: var(--gold-500);
+    .btn-lux::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-pitch);
+      transform: translateY(100%);
+      transition: transform var(--dur-norm) var(--cubic);
+      z-index: -1;
     }
 
-    .btn-gold:hover {
-      background-color: var(--gold-400);
-      border-color: var(--gold-400);
-      color: var(--navy-950);
+    .btn-lux:hover {
+      color: var(--gold-primary);
     }
 
-    .btn-outline-navy {
-      background: transparent;
-      color: var(--navy-900);
-      border-color: var(--navy-900);
+    .btn-lux:hover::after {
+      transform: translateY(0);
     }
 
-    .btn-outline-navy:hover {
-      background-color: var(--navy-900);
-      color: var(--warm-white);
+    .btn-link-editorial {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-white);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--gold-primary);
+      transition: gap var(--dur-fast) ease, color var(--dur-fast) ease;
     }
 
-    .btn-outline-light {
-      background: transparent;
-      color: var(--warm-white);
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    .btn-outline-light:hover {
-      background-color: rgba(255,255,255,0.1);
-      border-color: var(--warm-white);
-      color: var(--warm-white);
+    .btn-link-editorial:hover {
+      gap: 1.25rem;
+      color: var(--gold-primary);
     }
 
     /* ==========================================================================
-       HEADER & NAVIGATION
+       HEADER & EDITORIAL NAV
        ========================================================================== */
-    header.site-header {
-      position: sticky;
+    .site-nav {
+      position: fixed;
       top: 0;
-      z-index: 1000;
-      background-color: rgba(14, 23, 36, 0.98);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: var(--transition);
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(6, 9, 14, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
+      transition: background var(--dur-norm) ease, transform var(--dur-norm) ease;
     }
 
-    .nav-container {
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 80px;
+      height: 90px;
     }
 
-    .brand-logo {
+    .brand-mark {
       display: flex;
       flex-direction: column;
     }
 
-    .brand-logo .brand-name {
-      font-family: var(--font-serif);
-      font-size: 1.28rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--pure-white);
-    }
-
-    .brand-logo .brand-sub {
-      font-size: 0.68rem;
+    .brand-mark .name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--text-white);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gold-400);
+    }
+
+    .brand-mark .sub {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-primary);
       font-weight: 600;
     }
 
-    .nav-links {
+    .nav-menu {
       display: flex;
       align-items: center;
-      gap: 1.75rem;
+      gap: 2.25rem;
     }
 
-    .nav-links a {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    .nav-menu a {
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-light-muted);
       position: relative;
-      padding: 0.4rem 0;
+      padding: 0.5rem 0;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--pure-white);
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--text-white);
     }
 
-    .nav-links a::after {
+    .nav-menu a.active::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: var(--gold-400);
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
       width: 100%;
+      height: 2px;
+      background: var(--gold-primary);
     }
 
-    .nav-actions {
+    .nav-cta-box {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
-    .mobile-menu-toggle {
+    .nav-call-btn {
+      font-size: 0.8rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .mobile-menu-trigger {
       display: none;
-      background: none;
-      border: none;
-      color: var(--pure-white);
-      font-size: 1.5rem;
+      flex-direction: column;
+      gap: 6px;
+      width: 32px;
+      padding: 4px;
       cursor: pointer;
-      padding: 0.5rem;
+    }
+
+    .mobile-menu-trigger span {
+      width: 100%;
+      height: 2px;
+      background: var(--text-white);
+      transition: transform var(--dur-fast) ease;
     }
 
     /* Mobile Drawer */
-    .mobile-nav-drawer {
-      display: none;
+    .mobile-drawer {
       position: fixed;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      height: calc(100vh - 80px);
-      background-color: var(--navy-950);
-      flex-direction: column;
-      padding: 2rem;
-      border-top: 1px solid var(--border-dark);
-      overflow-y: auto;
-      z-index: 999;
-    }
-
-    .mobile-nav-drawer.open {
-      display: flex;
-    }
-
-    .mobile-nav-drawer a {
-      color: #cbd5e1;
-      font-size: 1.15rem;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .mobile-nav-drawer a.active {
-      color: var(--gold-400);
-      font-weight: 600;
-    }
-
-    .mobile-drawer-cta {
-      margin-top: 2rem;
+      inset: 0;
+      background: var(--bg-pitch);
+      z-index: 998;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      justify-content: center;
+      padding: 3rem;
+      transform: translateX(100%);
+      transition: transform 0.6s var(--cubic);
     }
 
-    /* ==========================================================================
-       SPA PAGE SWITCHING
-       ========================================================================== */
-    .page-view {
-      display: none;
-      animation: fadeInView 0.3s ease forwards;
+    .mobile-drawer.open {
+      transform: translateX(0);
     }
 
-    .page-view.active {
-      display: block;
-    }
-
-    @keyframes fadeInView {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ==========================================================================
-       HERO & STRIP
-       ========================================================================== */
-    .hero-section {
-      background-color: var(--navy-900);
-      position: relative;
-      overflow: hidden;
-      padding: 7rem 0 5.5rem 0;
-      border-bottom: 1px solid var(--border-dark);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content h1 {
-      font-size: 3.25rem;
-      color: var(--pure-white);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-content p.hero-sub {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: #a0aec0;
-      margin-bottom: 2.25rem;
-      max-width: 580px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-visual-card {
-      background: linear-gradient(145deg, #131d2c, #0c1420);
-      border: 1px solid var(--border-dark);
-      padding: 2.5rem;
-      position: relative;
-    }
-
-    .hero-visual-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--gold-500);
-    }
-
-    .trade-network-visual {
+    .mobile-drawer-links {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
 
-    .route-display {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .route-node {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .route-node .code {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--pure-white);
-      letter-spacing: 0.05em;
-    }
-
-    .route-node .label {
-      font-size: 0.72rem;
+    .mobile-drawer-links a {
+      font-family: var(--font-editorial);
+      font-size: 2.2rem;
+      color: var(--text-white);
       text-transform: uppercase;
-      color: var(--gold-400);
     }
 
-    .route-line {
-      flex: 1;
-      height: 1px;
-      background: dashed 1px rgba(255,255,255,0.2);
-      margin: 0 1.25rem;
+    .mobile-drawer-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       SECTION 1: HERO (SPLIT-SCREEN EDITORIAL)
+       ========================================================================== */
+    .hero-split-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      padding-top: 90px;
       position: relative;
+      background: var(--bg-pitch);
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .route-line::after {
-      content: '⇄';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--gold-400);
-      font-size: 0.9rem;
-    }
-
-    .hero-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .meta-box {
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 1rem;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .meta-box .val {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--pure-white);
-      letter-spacing: 0.02em;
-    }
-
-    .meta-box .lbl {
-      font-size: 0.7rem;
-      color: #718096;
-      text-transform: uppercase;
-    }
-
-    /* Compact Service Strip */
-    .compact-strip-bar {
-      background-color: #080d14;
-      border-bottom: 1px solid var(--border-dark);
-      padding: 1.1rem 0;
-    }
-
-    .strip-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .strip-item {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 600;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .strip-item::before {
-      content: '•';
-      color: var(--gold-400);
-      font-size: 1.1rem;
-    }
-
-    .strip-item:first-child::before {
-      display: none;
-    }
-
-    /* ==========================================================================
-       SECTION HEADERS
-       ========================================================================== */
-    .section-header {
-      margin-bottom: 3.5rem;
-      max-width: 720px;
-    }
-
-    .section-header.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .section-header h2 {
-      font-size: 2.35rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      font-size: 1.1rem;
-    }
-
-    /* ==========================================================================
-       SERVICE CARDS & DETAILS
-       ========================================================================== */
-    .services-grid-5 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .services-grid-5 .service-card:nth-child(4),
-    .services-grid-5 .service-card:nth-child(5) {
-      grid-column: span 1;
-    }
-
-    .service-card {
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 2.5rem;
+    .hero-left {
+      width: 52%;
+      padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 4.5rem);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
+      justify-content: center;
       position: relative;
+      z-index: 2;
     }
 
-    .service-card:hover {
-      border-color: var(--navy-800);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-    }
-
-    .service-card .srv-num {
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold-500);
-      margin-bottom: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    .service-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 1rem;
-      line-height: 1.35;
-    }
-
-    .service-card p {
-      font-size: 0.95rem;
-      color: #556274;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .service-list {
-      margin-bottom: 1.75rem;
-      border-top: 1px solid #edf2f7;
-      padding-top: 1rem;
-    }
-
-    .service-list li {
-      font-size: 0.88rem;
-      color: #4a5568;
-      padding: 0.35rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .service-list li::before {
-      content: '―';
-      color: var(--gold-500);
-      font-size: 0.8rem;
-    }
-
-    .service-view-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--navy-900);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: auto;
-    }
-
-    .service-view-link:hover {
-      color: var(--gold-500);
-    }
-
-    /* Process Flow Strip */
-    .flow-badge-strip {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 1rem 0 1.5rem;
-      padding: 0.75rem;
-      background: var(--warm-white);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .flow-badge {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--navy-800);
-    }
-
-    .flow-arrow {
-      color: var(--gold-500);
-      font-size: 0.75rem;
-    }
-
-    /* ==========================================================================
-       PHILOSOPHY SECTION
-       ========================================================================== */
-    .philosophy-banner {
-      background-color: var(--navy-900);
-      border-top: 1px solid var(--border-dark);
-      border-bottom: 1px solid var(--border-dark);
-      position: relative;
-    }
-
-    .quote-content {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .quote-mark {
-      font-family: var(--font-serif);
-      font-size: 4rem;
-      line-height: 1;
-      color: var(--gold-400);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .quote-main {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      line-height: 1.4;
-      color: var(--pure-white);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    .quote-sub {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #94a3b8;
-    }
-
-    /* ==========================================================================
-       APPROACH / PROCESS
-       ========================================================================== */
-    .process-stages-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .stage-card {
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 2rem 1.5rem;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .stage-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: transparent;
-      transition: var(--transition);
-    }
-
-    .stage-card:hover::before {
-      background: var(--gold-500);
-    }
-
-    .stage-num {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #d1d5db;
-      margin-bottom: 0.75rem;
-    }
-
-    .stage-name {
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.5rem;
-      color: var(--navy-900);
-    }
-
-    .stage-desc {
-      font-size: 0.88rem;
-      color: #556274;
-      line-height: 1.5;
-    }
-
-    /* Journey Roadmap (Linear Sequence) */
-    .journey-diagram {
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 2.5rem;
-    }
-
-    .journey-title {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .journey-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .journey-item {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1rem 1.25rem;
-      background: var(--warm-white);
-      border-left: 3px solid var(--navy-700);
-    }
-
-    .journey-item.active-step {
-      border-left-color: var(--gold-500);
-    }
-
-    .journey-step-num {
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold-500);
-      min-width: 40px;
-    }
-
-    .journey-step-text {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy-900);
-      letter-spacing: 0.02em;
-    }
-
-    /* ==========================================================================
-       WHO WE WORK WITH
-       ========================================================================== */
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .audience-card {
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 2rem 1.75rem;
-      border-top: 2px solid transparent;
-      transition: var(--transition);
-    }
-
-    .audience-card:hover {
-      border-top-color: var(--gold-500);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-    }
-
-    .audience-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--gold-500);
-    }
-
-    .audience-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .audience-card p {
-      font-size: 0.88rem;
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    /* ==========================================================================
-       GLOBAL MARKETS
-       ========================================================================== */
-    .market-regions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-    }
-
-    .market-box {
-      border: 1px solid var(--border-subtle);
-      background: var(--pure-white);
-      padding: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .market-box .region-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      color: var(--gold-500);
-      margin-bottom: 0.5rem;
-    }
-
-    .market-box h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .market-box p {
-      font-size: 0.92rem;
-      color: #556274;
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       EXPORT DEVELOPMENT (MANUFACTURERS)
-       ========================================================================== */
-    .export-dev-banner {
-      background: linear-gradient(to right, #0a1118, #111e2f);
-      border: 1px solid var(--border-dark);
-      padding: 4rem;
-      color: var(--warm-white);
-    }
-
-    .export-dev-banner h2 {
-      font-size: 2.3rem;
-      color: var(--pure-white);
-      margin-bottom: 1.25rem;
-    }
-
-    .export-dev-banner p.lead {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      max-width: 720px;
+    .hero-left .editorial-h1 {
       margin-bottom: 2rem;
     }
 
-    .journey-pill-row {
+    .hero-manifesto {
+      font-size: 1.18rem;
+      line-height: 1.7;
+      color: var(--text-light-muted);
+      max-width: 540px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .hero-cta-cluster {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-right {
+      width: 48%;
+      position: relative;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Real Cinematic Trade Imagery with Graphic Overlays */
+    .hero-image-backdrop {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      filter: saturate(0.8) contrast(1.1);
+      transform: scale(1.05);
+      transition: transform 3s ease-out;
+    }
+
+    .hero-right:hover .hero-image-backdrop {
+      transform: scale(1);
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--bg-pitch) 0%, rgba(6, 9, 14, 0.2) 60%, rgba(6,9,14,0.7) 100%);
+    }
+
+    /* Subtle Animated Trade Route Layer */
+    .route-overlay-container {
+      position: relative;
+      z-index: 3;
+      width: 85%;
+      height: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border-light-accent);
+      background: rgba(12, 18, 27, 0.65);
+      backdrop-filter: blur(8px);
+      padding: 2.5rem;
+    }
+
+    .route-overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1.25rem;
+    }
+
+    .floating-corridor-tag {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .floating-scope-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+    }
+
+    /* SVG Route Map Visual */
+    .svg-route-map {
+      width: 100%;
+      height: 240px;
+      margin: 1.5rem 0;
+    }
+
+    .route-path {
+      stroke: var(--gold-primary);
+      stroke-width: 1.5;
+      fill: none;
+      stroke-dasharray: 6 6;
+      animation: dashMove 30s linear infinite;
+    }
+
+    .route-node-point {
+      fill: var(--gold-primary);
+      filter: drop-shadow(0 0 6px var(--gold-primary));
+    }
+
+    .node-text {
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      fill: var(--text-white);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    @keyframes dashMove {
+      to { stroke-dashoffset: -1000; }
+    }
+
+    .corridor-progression-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-light-muted);
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.25rem;
+    }
+
+    .corridor-progression-bar span.active-node {
+      color: var(--gold-primary);
+    }
+
+    .corridor-progression-bar span.arrow {
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ==========================================================================
+       SECTION 2: MARQUEE — WHO WE WORK WITH
+       ========================================================================== */
+    .ticker-section {
+      background: var(--bg-slate);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .ticker-belt {
+      display: inline-flex;
+      animation: tickerRoll 32s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 3rem;
+      padding-right: 3rem;
+      transition: color var(--dur-fast);
+    }
+
+    .ticker-item:hover {
+      color: var(--gold-primary);
+    }
+
+    .ticker-item::after {
+      content: '/';
+      color: var(--gold-primary);
+      font-weight: 300;
+    }
+
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================================
+       SECTION 3: EDITORIAL PROFILE — DR. ARYANKUMAR VERMA
+       ========================================================================== */
+    .editorial-profile-section {
+      background: var(--bg-pitch);
+      position: relative;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .profile-editorial-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: center;
+    }
+
+    .portrait-stage {
+      position: relative;
+    }
+
+    .portrait-frame {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background-color: var(--bg-midnight);
+      border: 1px solid var(--border-light-accent);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+
+    /* Subdued sophisticated architectural/portrait fallback background */
+    .portrait-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: top center;
+      filter: grayscale(1) brightness(0.45) contrast(1.2);
+      opacity: 0.7;
+    }
+
+    .portrait-inner-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: rgba(6, 9, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-light);
+      padding: 1.75rem;
+      text-align: left;
+    }
+
+    .portrait-inner-card .initials {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .portrait-inner-card .direct-line {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+
+    .profile-narrative {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-narrative h2 {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .profile-position-sub {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-primary);
+      margin-bottom: 2.25rem;
+      font-weight: 700;
+    }
+
+    .profile-editorial-p {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text-light-muted);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    /* Credentials / Timeline Strip */
+    .cred-timeline {
+      border-top: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+
+    .cred-entry .val {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.35rem;
+    }
+
+    .cred-entry .desc {
+      font-size: 0.85rem;
+      color: var(--text-light-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SECTION 4: INTERACTIVE SERVICES PORTFOLIO (NOT BORING CARDS)
+       ========================================================================== */
+    .services-editorial-section {
+      background: var(--bg-midnight);
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    .services-layout-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: stretch;
+      margin-top: 4rem;
+    }
+
+    .service-nav-stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-nav-item {
+      padding: 2.25rem 2rem 2.25rem 0;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      transition: all var(--dur-norm) var(--cubic);
+      position: relative;
+    }
+
+    .service-nav-item::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 0%;
+      background: var(--gold-primary);
+      transition: height var(--dur-fast) ease;
+    }
+
+    .service-nav-item:hover,
+    .service-nav-item.active {
+      padding-left: 1.5rem;
+    }
+
+    .service-nav-item.active::before {
+      height: 60%;
+    }
+
+    .service-nav-item .srv-index {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-muted);
+      min-width: 36px;
+    }
+
+    .service-nav-item .srv-label {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color var(--dur-fast) ease;
+    }
+
+    .service-nav-item:hover .srv-label,
+    .service-nav-item.active .srv-label {
+      color: var(--text-white);
+    }
+
+    /* Service Visual Viewer Display */
+    .service-display-stage {
+      position: relative;
+      background: var(--bg-slate);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      min-height: 580px;
+    }
+
+    .service-backdrop-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.8) brightness(0.45);
+      transition: background-image 0.7s ease, transform 1.2s var(--cubic);
+      transform: scale(1.04);
+    }
+
+    .service-display-stage:hover .service-backdrop-image {
+      transform: scale(1);
+    }
+
+    .service-detail-overlay {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(6,9,14,0) 0%, rgba(6,9,14,0.95) 45%, var(--bg-pitch) 100%);
+      padding: 3.5rem 3rem 3rem;
+    }
+
+    .service-detail-overlay .active-srv-no {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .service-detail-overlay h3 {
+      font-family: var(--font-editorial);
+      font-size: 2.2rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .service-detail-overlay p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-light-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .service-capability-capsules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .cap-tag {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-light);
+      color: var(--text-white);
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       SECTION 5: THE 5-STAGE HORIZONTAL JOURNEY
+       ========================================================================== */
+    .journey-narrative-section {
+      background: var(--bg-pitch);
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    .journey-control-bar {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 4.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .journey-connecting-line {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--border-light);
+      z-index: 1;
+    }
+
+    .journey-connecting-fill {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      height: 1px;
+      background: var(--gold-primary);
+      transition: width var(--dur-norm) var(--cubic);
+      z-index: 2;
+    }
+
+    .stage-milestone-btn {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      background: transparent;
+      outline: none;
+    }
+
+    .stage-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-midnight);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-light-muted);
+      transition: all var(--dur-fast) ease;
+    }
+
+    .stage-milestone-btn.active .stage-dot {
+      background: var(--gold-primary);
+      color: var(--bg-pitch);
+      border-color: var(--gold-primary);
+      transform: scale(1.15);
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+
+    .stage-milestone-btn .stage-title {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-light-muted);
+      font-weight: 700;
+      transition: color var(--dur-fast) ease;
+    }
+
+    .stage-milestone-btn.active .stage-title {
+      color: var(--text-white);
+    }
+
+    /* Active Stage Canvas */
+    .stage-active-canvas {
+      background: var(--bg-midnight);
+      border: 1px solid var(--border-light);
+      padding: clamp(2.5rem, 5vw, 4.5rem);
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 380px;
+    }
+
+    .stage-canvas-left .num-giant {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 8rem);
+      font-weight: 800;
+      line-height: 0.8;
+      color: rgba(212, 175, 55, 0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .stage-canvas-left h3 {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .stage-canvas-right p.lead {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .stage-canvas-right p.detail {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--text-light-muted);
+    }
+
+    /* ==========================================================================
+       SECTION 6: FROM LOCAL TO GLOBAL (PROGRESSION DIAGRAM)
+       ========================================================================== */
+    .local-global-section {
+      background: radial-gradient(circle at 80% 20%, #111a26 0%, #06090e 70%);
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    .progression-waterfall {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 4.5rem;
+    }
+
+    .progression-row {
+      display: grid;
+      grid-template-columns: 80px 1.2fr 2fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      transition: all var(--dur-fast) ease;
+    }
+
+    .progression-row:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-left-color: var(--gold-primary);
+      transform: translateX(8px);
+    }
+
+    .progression-row .p-step {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .progression-row .p-name {
+      font-family: var(--font-editorial);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+
+    .progression-row .p-desc {
+      font-size: 0.95rem;
+      color: var(--text-light-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECTION 7: IMMERSIVE SOURCING & EXPORT COMBINED SPLIT
+       ========================================================================== */
+    .dual-editorial-banners {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .banner-col {
+      position: relative;
+      padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 4.5rem);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 680px;
+    }
+
+    .banner-col:first-child {
+      border-right: 1px solid var(--border-light);
+    }
+
+    .banner-img-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.7) brightness(0.35);
+      transition: transform 1.5s var(--cubic);
+    }
+
+    .banner-col:hover .banner-img-bg {
+      transform: scale(1.06);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner-overlay-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .banner-overlay-list span {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-white);
+    }
+
+    .banner-overlay-list span.accent {
+      color: var(--gold-primary);
+    }
+
+    .banner-subtext {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-light-muted);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    /* Sequence pill flow */
+    .export-step-flow {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      margin: 2rem 0;
     }
 
-    .journey-pill {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 0.6rem 1.2rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--pure-white);
-      letter-spacing: 0.03em;
-    }
-
-    .journey-pill-arrow {
-      color: var(--gold-400);
-      font-size: 0.9rem;
-    }
-
-    /* ==========================================================================
-       INSIGHTS / ARTICLES
-       ========================================================================== */
-    .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .insight-card {
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .insight-card .cat {
-      font-size: 0.72rem;
-      text-transform: uppercase;
+    .export-step-pill {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-light-accent);
+      padding: 0.55rem 1rem;
       font-weight: 700;
-      color: var(--gold-500);
-      margin-bottom: 0.5rem;
     }
 
-    .insight-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.35;
-    }
-
-    .insight-card p {
-      font-size: 0.9rem;
-      color: #556274;
-      line-height: 1.55;
-      margin-bottom: 1.5rem;
-    }
-
-    .insight-card .read-link {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy-900);
-    }
-
-    /* ==========================================================================
-       CONSULTATION & LEAD GENERATION FORM
-       ========================================================================== */
-    .consultation-wrap {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 4rem;
-      background: var(--pure-white);
-      border: 1px solid var(--border-subtle);
-      padding: 3.5rem;
-    }
-
-    .consult-info h3 {
-      font-size: 1.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .consult-meta-list {
-      margin-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 1.5rem;
-    }
-
-    .consult-meta-item {
-      margin-bottom: 1.25rem;
-    }
-
-    .consult-meta-item .lbl {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted-gray);
-      font-weight: 600;
-    }
-
-    .consult-meta-item .val {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy-950);
-      margin-top: 0.2rem;
-    }
-
-    .consult-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .form-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-group label {
+    .export-arrow {
+      color: var(--gold-primary);
       font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #374151;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      font-size: 0.92rem;
-      font-family: inherit;
-      border: 1px solid var(--border-subtle);
-      border-radius: 2px;
-      background-color: var(--warm-white);
-      color: var(--navy-950);
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--gold-500);
-      background-color: var(--pure-white);
-    }
-
-    textarea.form-control {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .form-disclaimer {
-      font-size: 0.76rem;
-      color: #718096;
-      line-height: 1.4;
-    }
-
-    .form-success-message {
-      display: none;
-      padding: 1.5rem;
-      background: #edf7ed;
-      border: 1px solid #c8e6c9;
-      color: #1e4620;
-      font-size: 0.95rem;
     }
 
     /* ==========================================================================
-       ABOUT CONSULTANT VIEW
+       SECTION 8: INTERACTIVE WORLD MAP & GLOBAL MARKETS
        ========================================================================== */
-    .about-consultant-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .consultant-portrait-card {
-      border: 1px solid var(--border-subtle);
-      background: var(--pure-white);
-      padding: 1.75rem;
-      text-align: center;
-    }
-
-    .portrait-box {
-      width: 100%;
-      height: 380px;
-      background-color: var(--navy-800);
-      border: 1px solid var(--border-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--warm-white);
-      margin-bottom: 1.5rem;
+    .global-markets-section {
+      background: var(--bg-midnight);
+      border-bottom: 1px solid var(--border-light);
       position: relative;
     }
 
-    .portrait-monogram {
+    .market-map-canvas {
+      position: relative;
+      background: var(--bg-slate);
+      border: 1px solid var(--border-light);
+      height: 480px;
+      margin-top: 3.5rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Stylized SVG Map Graphics */
+    .interactive-world-svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.55;
+    }
+
+    .map-hotspot {
+      cursor: pointer;
+      transition: all var(--dur-fast) ease;
+    }
+
+    .map-hotspot:hover circle.ring {
+      stroke: var(--gold-primary);
+      stroke-width: 3;
+      r: 16;
+    }
+
+    .market-region-selector-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--border-light);
+      border-top: none;
+      background: var(--bg-pitch);
+    }
+
+    .market-tab-btn {
+      padding: 1.75rem 1.25rem;
+      text-align: left;
+      border-right: 1px solid var(--border-light);
+      background: transparent;
+      cursor: pointer;
+      transition: background var(--dur-fast) ease;
+    }
+
+    .market-tab-btn:last-child {
+      border-right: none;
+    }
+
+    .market-tab-btn.active {
+      background: var(--bg-midnight);
+      border-top: 2px solid var(--gold-primary);
+    }
+
+    .market-tab-btn .tag {
       font-family: var(--font-display);
-      font-size: 3.5rem;
-      color: var(--gold-400);
-      letter-spacing: 0.1em;
-    }
-
-    .portrait-caption {
-      font-size: 0.8rem;
+      font-size: 0.68rem;
+      color: var(--gold-primary);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #94a3b8;
-      margin-top: 0.5rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.35rem;
+      display: block;
+      font-weight: 700;
     }
 
-    .consultant-title-group h2 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
+    .market-tab-btn .title {
+      font-family: var(--font-editorial);
+      font-size: 1.4rem;
+      color: var(--text-white);
+      text-transform: uppercase;
     }
 
-    .consultant-title-group .titles {
-      font-size: 1.1rem;
-      color: var(--gold-500);
-      font-weight: 600;
-      margin-bottom: 1.75rem;
+    .market-detail-panel {
+      background: var(--bg-slate);
+      border: 1px solid var(--border-light);
+      border-top: none;
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .cred-list {
-      margin: 1.5rem 0;
-      padding-left: 1.25rem;
-    }
-
-    .cred-list li {
-      list-style-type: square;
-      padding: 0.4rem 0;
-      font-size: 0.98rem;
-      color: #374151;
+    .market-detail-panel .desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-light-muted);
+      max-width: 800px;
     }
 
     /* ==========================================================================
-       SUBPAGE HERO
+       SECTION 9: PHILOSOPHICAL FULL-BLEED QUOTE
        ========================================================================== */
-    .subpage-hero {
-      background-color: var(--navy-900);
-      border-bottom: 1px solid var(--border-dark);
-      padding: 4.5rem 0 3.5rem;
+    .statement-break-section {
+      background-color: #030508;
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(7rem, 14vw, 12rem) 0;
+      position: relative;
+      text-align: center;
     }
 
-    .subpage-hero h1 {
-      color: var(--pure-white);
-      font-size: 2.75rem;
-      margin-bottom: 0.75rem;
+    .statement-quote-p {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+      line-height: 1.15;
+      font-weight: 400;
+      color: var(--text-white);
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
     }
 
-    .subpage-hero p.sub-lead {
-      color: #94a3b8;
-      font-size: 1.15rem;
-      max-width: 680px;
+    .statement-sub-p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-light-muted);
+      max-width: 760px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ==========================================================================
+       SECTION 10: DRAMATIC FULL-SCREEN CONSULTATION CTA & FORM
+       ========================================================================== */
+    .dramatic-cta-section {
+      background: linear-gradient(180deg, var(--bg-pitch) 0%, #0d1522 100%);
+      position: relative;
+      padding-top: clamp(6rem, 12vw, 10rem);
+      padding-bottom: clamp(6rem, 12vw, 10rem);
+    }
+
+    .cta-editorial-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 5rem;
+    }
+
+    .cta-editorial-header .editorial-h2 {
+      font-size: clamp(3rem, 6.5vw, 6.2rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    .cta-form-stage {
+      max-width: 880px;
+      margin: 0 auto;
+      background: rgba(6, 9, 14, 0.88);
+      border: 1px solid var(--border-light-accent);
+      padding: clamp(2.5rem, 5vw, 4.5rem);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .editorial-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .input-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .input-field-group.full {
+      grid-column: span 2;
+    }
+
+    .input-field-group label {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .input-field-group input,
+    .input-field-group select,
+    .input-field-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-light);
+      padding: 1rem 1.25rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-white);
+      transition: all var(--dur-fast) ease;
+    }
+
+    .input-field-group input:focus,
+    .input-field-group select:focus,
+    .input-field-group textarea:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .input-field-group select option {
+      background: var(--bg-pitch);
+      color: var(--text-white);
+    }
+
+    .input-field-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-success-banner {
+      display: none;
+      padding: 2rem;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold-primary);
+      color: var(--text-white);
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     /* ==========================================================================
        FOOTER
        ========================================================================== */
-    footer.site-footer {
-      background-color: var(--navy-950);
-      color: #94a3b8;
-      padding-top: 4.5rem;
-      padding-bottom: 2.5rem;
-      border-top: 1px solid var(--border-dark);
+    .site-footer {
+      background: #030508;
+      border-top: 1px solid var(--border-light);
+      padding: 5rem 0 3rem;
       font-size: 0.88rem;
     }
 
-    .footer-top-grid {
+    .footer-split {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4.5rem;
     }
 
-    .footer-col h4 {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
+    .footer-brand h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--pure-white);
-      margin-bottom: 1.25rem;
-      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 0.4rem;
     }
 
-    .footer-links {
+    .footer-brand p.qual {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand p.bio {
+      color: var(--text-light-muted);
+      line-height: 1.7;
+      max-width: 440px;
+    }
+
+    .footer-links-col h5 {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .footer-links-col ul {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.85rem;
     }
 
-    .footer-links a {
-      color: #94a3b8;
+    .footer-links-col a {
+      color: var(--text-light-muted);
     }
 
-    .footer-links a:hover {
-      color: var(--gold-400);
+    .footer-links-col a:hover {
+      color: var(--gold-primary);
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 2rem;
+    .footer-bottom-row {
+      border-top: 1px solid var(--border-light);
+      padding-top: 2.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
+      color: var(--text-light-muted);
       font-size: 0.8rem;
     }
 
-    .legal-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .legal-links a:hover {
-      color: var(--warm-white);
-    }
-
-    /* ==========================================================================
-       WHATSAPP / CONTACT QUICK FLOAT
-       ========================================================================== */
-    .quick-contact-float {
+    /* Floating WhatsApp Widget */
+    .contact-float-pill {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
+      bottom: 2.25rem;
+      right: 2.25rem;
       z-index: 900;
-      display: flex;
+      background: var(--bg-slate);
+      border: 1px solid var(--border-light-accent);
+      padding: 0.85rem 1.65rem;
+      display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      background-color: var(--navy-900);
-      color: var(--warm-white);
-      border: 1px solid var(--border-dark);
-      padding: 0.75rem 1.2rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: var(--transition);
+      gap: 0.85rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-white);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all var(--dur-fast) ease;
     }
 
-    .quick-contact-float:hover {
-      border-color: var(--gold-400);
-      transform: translateY(-2px);
-      color: var(--gold-400);
+    .contact-float-pill:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+      color: var(--gold-primary);
     }
 
-    .pulse-dot {
+    .live-dot {
       width: 8px;
       height: 8px;
+      background: #25d366;
       border-radius: 50%;
-      background-color: #25d366;
+      box-shadow: 0 0 8px #25d366;
     }
 
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
+       RESPONSIVE ADAPTATIONS
        ========================================================================== */
-    @media (max-width: 1024px) {
-      .hero-grid {
+    @media (max-width: 1080px) {
+      .hero-split-section {
+        flex-direction: column;
+      }
+      .hero-left, .hero-right {
+        width: 100%;
+      }
+      .hero-right {
+        min-height: 520px;
+      }
+      .profile-editorial-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.5rem;
       }
-      .services-grid-5 {
-        grid-template-columns: repeat(2, 1fr);
+      .services-layout-split {
+        grid-template-columns: 1fr;
       }
-      .process-stages-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .stage-active-canvas {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
-      .audience-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .dual-editorial-banners {
+        grid-template-columns: 1fr;
       }
-      .market-regions-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .dual-editorial-banners .banner-col:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
       }
-      .footer-top-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .market-region-selector-tabs {
+        grid-template-columns: 1fr;
       }
-      .consultation-wrap {
+      .market-tab-btn {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .footer-split {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        padding: 2rem;
-      }
-      .about-consultant-grid {
-        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 768px) {
-      .nav-links, .nav-actions .btn-outline-light {
+      .nav-menu, .nav-call-btn {
         display: none;
       }
-      .mobile-menu-toggle {
-        display: block;
+      .mobile-menu-trigger {
+        display: flex;
       }
-      .hero-content h1 {
-        font-size: 2.35rem;
+      .hero-manifesto {
+        font-size: 1.05rem;
       }
-      .section-py {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+      .progression-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
       }
-      .services-grid-5 {
+      .editorial-form-grid {
         grid-template-columns: 1fr;
       }
-      .services-grid-5 .service-card:nth-child(4),
-      .services-grid-5 .service-card:nth-child(5) {
+      .input-field-group.full {
         grid-column: span 1;
       }
-      .process-stages-grid {
-        grid-template-columns: 1fr;
+      .journey-control-bar {
+        overflow-x: auto;
+        padding-bottom: 1rem;
       }
-      .audience-grid {
-        grid-template-columns: 1fr;
-      }
-      .market-regions-grid {
-        grid-template-columns: 1fr;
-      }
-      .insights-grid {
-        grid-template-columns: 1fr;
-      }
-      .form-grid-2 {
-        grid-template-columns: 1fr;
-      }
-      .footer-top-grid {
-        grid-template-columns: 1fr;
-      }
-      .export-dev-banner {
-        padding: 2rem;
-      }
-      .quick-contact-float {
-        bottom: 1.25rem;
-        right: 1.25rem;
-        padding: 0.65rem 1rem;
-        font-size: 0.78rem;
+      .stage-milestone-btn .stage-title {
+        font-size: 0.7rem;
       }
     }
   </style>
@@ -1365,1222 +1557,979 @@
 <body>
 
   <!-- ==========================================================================
-       STICKY NAVIGATION
+       NAVIGATION
        ========================================================================== -->
-  <header class="site-header">
-    <div class="container">
-      <div class="nav-container">
+  <header class="site-nav">
+    <div class="wrap-fluid">
+      <div class="nav-inner">
         
-        <!-- Brand Identity -->
-        <a href="#home" class="brand-logo" onclick="navigateTo('home')">
-          <span class="brand-name">DR. ARYANKUMAR VERMA</span>
-          <span class="brand-sub">International Trade & Export Consultant</span>
+        <!-- Brand Signature -->
+        <a href="#hero" class="brand-mark">
+          <span class="name">Dr. Aryankumar Verma</span>
+          <span class="sub">Trade Management Consultant</span>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="nav-links">
-          <a href="#home" data-route="home" class="active">Home</a>
-          <a href="#about" data-route="about">About</a>
-          <a href="#services" data-route="services">Services</a>
-          <a href="#approach" data-route="approach">Our Approach</a>
-          <a href="#who-we-work-with" data-route="who-we-work-with">Who We Work With</a>
-          <a href="#global-markets" data-route="global-markets">Global Markets</a>
-          <a href="#insights" data-route="insights">Insights</a>
-          <a href="#contact" data-route="contact">Contact</a>
+        <!-- Menu Links -->
+        <nav class="nav-menu">
+          <a href="#services" class="active">Services</a>
+          <a href="#journey">The Journey</a>
+          <a href="#local-to-global">Local → Global</a>
+          <a href="#markets">Markets</a>
+          <a href="#consultant">Consultant</a>
         </nav>
 
-        <!-- Actions -->
-        <div class="nav-actions">
-          <button class="btn btn-gold" onclick="navigateTo('contact')">Book a Consultation</button>
-          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">☰</button>
+        <!-- CTAs -->
+        <div class="nav-cta-box">
+          <a href="tel:9327155550" class="nav-call-btn">9327155550</a>
+          <a href="#consult" class="btn-lux" style="padding: 0.85rem 1.75rem; font-size: 0.72rem;">Start Conversation</a>
+          <div class="mobile-menu-trigger" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
 
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav-drawer" id="mobileDrawer">
-    <a href="#home" data-route="home">Home</a>
-    <a href="#about" data-route="about">About</a>
-    <a href="#services" data-route="services">Services</a>
-    <a href="#approach" data-route="approach">Our Approach</a>
-    <a href="#who-we-work-with" data-route="who-we-work-with">Who We Work With</a>
-    <a href="#global-markets" data-route="global-markets">Global Markets</a>
-    <a href="#insights" data-route="insights">Insights</a>
-    <a href="#contact" data-route="contact">Contact</a>
-    <div class="mobile-drawer-cta">
-      <button class="btn btn-gold" onclick="navigateTo('contact')">Book a Consultation</button>
-      <a href="tel:9327155550" class="btn btn-outline-light">Call: +91 9327155550</a>
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-links">
+      <a href="#services" onclick="closeDrawer()">Services</a>
+      <a href="#journey" onclick="closeDrawer()">The Journey</a>
+      <a href="#local-to-global" onclick="closeDrawer()">Local → Global</a>
+      <a href="#markets" onclick="closeDrawer()">Global Markets</a>
+      <a href="#consultant" onclick="closeDrawer()">About Consultant</a>
+      <a href="#consult" onclick="closeDrawer()">Book Consultation</a>
     </div>
   </div>
 
-  <!-- MAIN WRAPPER: SINGLE PAGE ROUTED VIEWS -->
-  <main id="mainContent">
-
-    <!-- ========================================================================
-         VIEW 1: HOME PAGE
-         ======================================================================== -->
-    <div id="view-home" class="page-view active">
+  <!-- ==========================================================================
+       1. HERO — EDITORIAL SPLIT SCREEN
+       ========================================================================== -->
+  <section class="hero-split-section" id="hero">
+    
+    <!-- Left Editorial Statement -->
+    <div class="hero-left">
+      <span class="eyebrow-tag">International Trade Advisory</span>
       
-      <!-- Editorial Hero Section -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-grid">
-            <div class="hero-content">
-              <span class="eyebrow eyebrow-dark">International Business Advisory</span>
-              <h1>Building Business Connections Across Global Markets</h1>
-              <p class="hero-sub">
-                Helping manufacturers, traders, entrepreneurs, and growing businesses explore international trade, develop export opportunities, source globally, and establish business operations in selected international markets.
-              </p>
-              <div class="hero-actions">
-                <button class="btn btn-gold" onclick="navigateTo('contact')">Book a Consultation</button>
-                <button class="btn btn-outline-light" onclick="navigateTo('services')">Explore Services</button>
-              </div>
-            </div>
+      <h1 class="editorial-h1">
+        Building Business <br>
+        <span class="serif-italic">Connections</span> <br>
+        Across Global <br>
+        Markets.
+      </h1>
 
-            <!-- Structured Editorial Trade Graphic -->
-            <div class="hero-visual-card">
-              <span class="eyebrow eyebrow-dark" style="margin-bottom:0.5rem;">Strategic Corridors</span>
-              <div class="trade-network-visual">
-                
-                <div class="route-display">
-                  <div class="route-node">
-                    <span class="code">IND</span>
-                    <span class="label">Manufacturing Hub</span>
-                  </div>
-                  <div class="route-line"></div>
-                  <div class="route-node" style="text-align:right;">
-                    <span class="code">UAE</span>
-                    <span class="label">Regional Gateway</span>
-                  </div>
-                </div>
+      <p class="hero-manifesto">
+        Helping manufacturers, traders, and entrepreneurs move from domestic opportunity to structured international business.
+      </p>
 
-                <div class="route-display">
-                  <div class="route-node">
-                    <span class="code">IND / UAE</span>
-                    <span class="label">Trade Flow</span>
-                  </div>
-                  <div class="route-line"></div>
-                  <div class="route-node" style="text-align:right;">
-                    <span class="code">USA / CAN</span>
-                    <span class="label">Expansion Target</span>
-                  </div>
-                </div>
-
-                <div class="hero-meta-grid">
-                  <div class="meta-box">
-                    <div class="lbl">Primary Advisory</div>
-                    <div class="val">Trade Execution & Entry</div>
-                  </div>
-                  <div class="meta-box">
-                    <div class="lbl">Market Horizon</div>
-                    <div class="val">Selected African Markets</div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Compact Service Strip -->
-      <div class="compact-strip-bar">
-        <div class="container">
-          <div class="strip-flex">
-            <div class="strip-item">IMPORT</div>
-            <div class="strip-item">EXPORT</div>
-            <div class="strip-item">GLOBAL SOURCING</div>
-            <div class="strip-item">INTERNATIONAL BUSINESS SETUP</div>
-            <div class="strip-item">EXPORT DEVELOPMENT</div>
-          </div>
-        </div>
+      <div class="hero-cta-cluster">
+        <a href="#consult" class="btn-lux">Book a Consultation</a>
+        <a href="#services" class="btn-link-editorial">Explore Our Services →</a>
       </div>
+    </div>
 
-      <!-- Core Services Overview on Home -->
-      <section class="section-py bg-ivory">
-        <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">Consultancy Capabilities</span>
-            <h2>Core Areas of International Advisory</h2>
-            <p>Structured, professional guidance engineered to transition businesses into sustainable international operations.</p>
-          </div>
+    <!-- Right Cinematic Composition + Route Graphic -->
+    <div class="hero-right">
+      <div class="hero-image-backdrop"></div>
 
-          <div class="services-grid-5">
-            <!-- 01 -->
-            <div class="service-card">
-              <div>
-                <span class="srv-num">01</span>
-                <h3>Global Sourcing & Import Consultancy</h3>
-                <p>Support for businesses seeking to procure machinery, materials, and finished goods internationally with end-to-end guidance.</p>
-                <ul class="service-list">
-                  <li>Machinery & Industrial Equipment</li>
-                  <li>Raw Materials & Inputs</li>
-                  <li>Supplier Identification & Vetting</li>
-                  <li>Import Logistics & Compliance</li>
-                </ul>
-              </div>
-              <a href="#services" onclick="navigateTo('services')" class="service-view-link">View Full Scope →</a>
-            </div>
-
-            <!-- 02 -->
-            <div class="service-card">
-              <div>
-                <span class="srv-num">02</span>
-                <h3>Export Business Development</h3>
-                <p>Tailored for manufacturers and product-based enterprises entering foreign markets and expanding commercial reach.</p>
-                <div class="flow-badge-strip">
-                  <span class="flow-badge">Assess</span>
-                  <span class="flow-arrow">→</span>
-                  <span class="flow-badge">Position</span>
-                  <span class="flow-arrow">→</span>
-                  <span class="flow-badge">Buyers</span>
-                  <span class="flow-arrow">→</span>
-                  <span class="flow-badge">Execute</span>
-                </div>
-              </div>
-              <a href="#services" onclick="navigateTo('services')" class="service-view-link">View Full Scope →</a>
-            </div>
-
-            <!-- 03 -->
-            <div class="service-card">
-              <div>
-                <span class="srv-num">03</span>
-                <h3>International Business Setup</h3>
-                <p>Initial planning and business structure advisory for companies expanding operations into key international commercial hubs.</p>
-                <ul class="service-list">
-                  <li>Dubai / UAE Setup Advisory</li>
-                  <li>USA & Canada Market Entry</li>
-                  <li>Selected African Markets</li>
-                  <li>Business Architecture Guidance</li>
-                </ul>
-              </div>
-              <a href="#services" onclick="navigateTo('services')" class="service-view-link">View Full Scope →</a>
-            </div>
-
-            <!-- 04 -->
-            <div class="service-card">
-              <div>
-                <span class="srv-num">04</span>
-                <h3>International Trade Consultancy</h3>
-                <p>Comprehensive advisory covering trade strategy, commercial terms, compliance, and international negotiation.</p>
-                <ul class="service-list">
-                  <li>Trade Strategy & Commercial Terms</li>
-                  <li>Export Documentation Coordination</li>
-                  <li>Market Research & Validation</li>
-                  <li>Business Communication</li>
-                </ul>
-              </div>
-              <a href="#services" onclick="navigateTo('services')" class="service-view-link">View Full Scope →</a>
-            </div>
-
-            <!-- 05 -->
-            <div class="service-card">
-              <div>
-                <span class="srv-num">05</span>
-                <h3>Import–Export Financial Solutions</h3>
-                <p>Advisory assistance in evaluating working capital, trade finance, and funding options via authorized financial institutions.</p>
-                <ul class="service-list">
-                  <li>Working Capital Structuring</li>
-                  <li>Trade Finance Facilities Review</li>
-                  <li>Business Funding Alternatives</li>
-                  <li>Institutional Financial Liaison</li>
-                </ul>
-              </div>
-              <a href="#services" onclick="navigateTo('services')" class="service-view-link">View Full Scope →</a>
-            </div>
-          </div>
+      <!-- Trade Corridor Interactive Overlay -->
+      <div class="route-overlay-container">
+        
+        <div class="route-overlay-header">
+          <span class="floating-corridor-tag">Global Market Entry</span>
+          <span class="floating-scope-tag">Import • Export • Sourcing</span>
         </div>
-      </section>
 
-      <!-- Section: Export Development Focus for Manufacturers -->
-      <section class="section-py bg-white">
-        <div class="container">
-          <div class="export-dev-banner">
-            <span class="eyebrow eyebrow-dark">Specialized Manufacturer Track</span>
-            <h2>From Local Business to Global Opportunity</h2>
-            <p class="lead">
-              A structured roadmap designed to move manufacturing enterprises from domestic market dependency into active, competitive cross-border trade.
-            </p>
+        <!-- Real SVG Geometrical Flight & Trade Route Graphic -->
+        <svg class="svg-route-map" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Geometric Vector Routes -->
+          <path class="route-path" d="M 60 160 Q 140 100 200 130 T 360 60" />
+          <path class="route-path" d="M 200 130 Q 240 180 320 180" style="animation-duration: 22s;" />
+          <path class="route-path" d="M 60 160 Q 80 70 170 60" style="animation-duration: 26s;" />
 
-            <div class="journey-pill-row">
-              <span class="journey-pill">Domestic Business</span>
-              <span class="journey-pill-arrow">→</span>
-              <span class="journey-pill">Market Assessment</span>
-              <span class="journey-pill-arrow">→</span>
-              <span class="journey-pill">International Opportunity</span>
-              <span class="journey-pill-arrow">→</span>
-              <span class="journey-pill">Buyer Development</span>
-              <span class="journey-pill-arrow">→</span>
-              <span class="journey-pill">Export Strategy</span>
-              <span class="journey-pill-arrow">→</span>
-              <span class="journey-pill">Trade Execution</span>
-            </div>
+          <!-- Nodes: India, UAE, USA, Canada, Africa -->
+          <!-- India (Origin) -->
+          <circle cx="60" cy="160" r="5" class="route-node-point" />
+          <text x="50" y="185" class="node-text">India (Base)</text>
 
-            <button class="btn btn-gold" onclick="navigateTo('contact')">Explore Export Opportunities</button>
-          </div>
+          <!-- UAE -->
+          <circle cx="200" cy="130" r="4" class="route-node-point" />
+          <text x="185" y="120" class="node-text">UAE (Hub)</text>
+
+          <!-- USA / Canada -->
+          <circle cx="360" cy="60" r="4" class="route-node-point" />
+          <text x="320" y="50" class="node-text">USA / Canada</text>
+
+          <!-- Africa -->
+          <circle cx="320" cy="180" r="4" class="route-node-point" />
+          <text x="295" y="205" class="node-text">Selected Africa</text>
+        </svg>
+
+        <!-- Progressive Corridor Footer -->
+        <div class="corridor-progression-bar">
+          <span class="active-node">India</span>
+          <span class="arrow">→</span>
+          <span>UAE</span>
+          <span class="arrow">→</span>
+          <span>USA</span>
+          <span class="arrow">→</span>
+          <span>Canada</span>
+          <span class="arrow">→</span>
+          <span>Africa</span>
         </div>
-      </section>
 
-      <!-- Philosophy Callout -->
-      <section class="section-py philosophy-banner">
-        <div class="container">
-          <div class="quote-content">
-            <span class="quote-mark">“</span>
-            <div class="quote-main">
-              Global business begins with the right strategy, the right market, and the right execution.
-            </div>
-            <div class="quote-sub">
-              Every business is different. Our role is to understand the business, identify relevant opportunities, develop a practical approach, and provide structured support throughout the journey.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Approach Overview -->
-      <section class="section-py bg-ivory">
-        <div class="container">
-          <div class="section-header center">
-            <span class="eyebrow">Our Methodology</span>
-            <h2>A Structured Five-Stage Framework</h2>
-            <p>Practical business guidance and continuous support for businesses exploring international markets and building cross-border trade opportunities.</p>
-          </div>
-
-          <div class="process-stages-grid">
-            <div class="stage-card">
-              <div class="stage-num">01</div>
-              <div class="stage-name">UNDERSTAND</div>
-              <div class="stage-desc">Evaluating commercial capacity, domestic baseline, target ambitions, and operational readiness.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">02</div>
-              <div class="stage-name">PLAN</div>
-              <div class="stage-desc">Formulating market positioning, entry strategy, regulatory considerations, and commercial models.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">03</div>
-              <div class="stage-name">CONNECT</div>
-              <div class="stage-desc">Identifying potential trade channels, vetting counterparties, suppliers, or buyer segments.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">04</div>
-              <div class="stage-name">EXECUTE</div>
-              <div class="stage-desc">Structuring terms, assisting with documentation protocols, compliance, and logistics coordination.</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">05</div>
-              <div class="stage-name">GROW</div>
-              <div class="stage-desc">Long-term advisory to maintain continuous cross-border operations and expand market presence.</div>
-            </div>
-          </div>
-
-          <div style="text-align: center;">
-            <button class="btn btn-outline-navy" onclick="navigateTo('approach')">View Complete End-to-End Journey</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Closing Call To Action -->
-      <section class="section-py bg-navy border-top-dark">
-        <div class="container text-center" style="text-align: center; max-width: 760px;">
-          <span class="eyebrow eyebrow-dark">Start The Dialogue</span>
-          <h2 style="font-size: 2.5rem; margin-bottom: 1.25rem;">Let’s Explore Global Business Opportunities</h2>
-          <p style="margin-bottom: 2.25rem; font-size: 1.15rem;">
-            Whether you are looking to source internationally, develop an export business, or explore a new international market, start with a structured conversation.
-          </p>
-          <button class="btn btn-gold" onclick="navigateTo('contact')">Book a Consultation</button>
-        </div>
-      </section>
+      </div>
 
     </div>
 
-    <!-- ========================================================================
-         VIEW 2: ABOUT VIEW
-         ======================================================================== -->
-    <div id="view-about" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Consultant Background</span>
-          <h1>About Dr. Aryankumar Verma</h1>
-          <p class="sub-lead">Business Management Consultant, International Trade Consultant, and Export Business Advisor.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          <div class="about-consultant-grid">
-            
-            <!-- Tasteful Placeholder Portrait Box -->
-            <div class="consultant-portrait-card">
-              <div class="portrait-box">
-                <div class="portrait-monogram">AV</div>
-                <div class="portrait-caption">Dr. Aryankumar Verma</div>
-              </div>
-              <p style="font-size:0.85rem; color:#64748b; font-weight:500;">
-                Consultation: <strong>9327155550</strong><br>
-                India | UAE | USA | Canada | Selected African Markets
-              </p>
-            </div>
-
-            <!-- Consultant Details Based strictly on PDF Source -->
-            <div class="consultant-bio-content">
-              <div class="consultant-title-group">
-                <span class="eyebrow">Professional Profile</span>
-                <h2>Dr. Aryankumar Verma</h2>
-                <div class="titles">
-                  Business Management Consultant | International Trade Consultant | Export Business Advisor
-                </div>
-              </div>
-
-              <p class="lead-text" style="margin-bottom: 1.5rem;">
-                Dr. Aryankumar Verma is a Business Management Consultant and International Trade Consultant with several years of professional involvement in the Import & Export and business development sector.
-              </p>
-
-              <h4 style="margin-top: 2rem; font-size: 1.15rem;">Academic & Professional Credentials:</h4>
-              <ul class="cred-list">
-                <li><strong>Ph.D. in Business Management</strong></li>
-                <li>Professional focus on International Trade Advisory</li>
-                <li>Export Business Development Strategy</li>
-                <li>Global Sourcing & Procurement Structuring</li>
-                <li>International Market Entry Planning</li>
-                <li>Business Setup & Commercial Expansion Advisory</li>
-              </ul>
-
-              <h4 style="margin-top: 2rem; font-size: 1.15rem;">Advisory Philosophy</h4>
-              <p style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
-                “Every business is different. Our role is to understand the business, identify relevant opportunities, develop a practical approach, and provide structured support throughout the journey.”
-              </p>
-
-              <p>
-                Dr. Verma provides pragmatic, high-clarity counsel designed to navigate complex regulatory requirements, international buyer-seller dynamics, and cross-border commercial execution.
-              </p>
-
-              <div style="margin-top: 2.5rem;">
-                <button class="btn btn-gold" onclick="navigateTo('contact')">Schedule a Structured Consultation</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 3: SERVICES VIEW
-         ======================================================================== -->
-    <div id="view-services" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Advisory Solutions</span>
-          <h1>Consultancy Services</h1>
-          <p class="sub-lead">Specialized international trade, sourcing, and cross-border expansion capabilities.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          
-          <!-- Detailed Service 1 -->
-          <div style="margin-bottom: 4.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-subtle);">
-            <div class="section-header" style="max-width: 100%;">
-              <span class="eyebrow">Service 01</span>
-              <h2>Global Sourcing & Import Consultancy</h2>
-              <p class="lead-text">
-                Structured support for domestic enterprises and industrial operators seeking to procure equipment, raw materials, or specialized products from international markets.
-              </p>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-              <div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Procurement Categories:</h4>
-                <ul class="service-list">
-                  <li><strong>Machinery & Industrial Equipment:</strong> Identifying reliable manufacturing sources and technical specifications.</li>
-                  <li><strong>Raw Materials:</strong> Establishing direct supply channels for manufacturing inputs.</li>
-                  <li><strong>Products & Finished Goods:</strong> Commercial sourcing for retail and distribution networks.</li>
-                  <li><strong>Technology & Business Equipment:</strong> Cross-border equipment acquisition.</li>
-                  <li><strong>Internationally Sourced Products:</strong> Bespoke procurement advisory.</li>
-                </ul>
-              </div>
-              <div style="background: var(--ivory); padding: 2rem; border-left: 3px solid var(--gold-500);">
-                <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Advisory Scope Included:</h4>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem;">
-                  Assistance covers supplier identification, commercial evaluation of vendor credentials, structured sourcing strategy, import-process regulatory guidance, documentation review, and logistics coordination.
-                </p>
-                <button class="btn btn-outline-navy" onclick="navigateTo('contact')">Discuss Sourcing Needs</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Detailed Service 2 -->
-          <div style="margin-bottom: 4.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-subtle);">
-            <div class="section-header" style="max-width: 100%;">
-              <span class="eyebrow">Service 02</span>
-              <h2>Export Business Development</h2>
-              <p class="lead-text">
-                Designed specifically for manufacturers and product-based businesses seeking to move beyond domestic operations and secure international buyer channels.
-              </p>
-            </div>
-            <div style="background: var(--navy-900); color: var(--warm-white); padding: 2.5rem; margin-bottom: 2rem;">
-              <h4 style="color: var(--pure-white); font-size: 1.1rem; margin-bottom: 1.25rem;">The End-to-End Export Development Workflow:</h4>
-              <div class="journey-pill-row" style="margin-bottom: 0;">
-                <span class="journey-pill">Market Identification</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Product Positioning</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Buyer Identification</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Export Strategy</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Documentation</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Logistics</span>
-                <span class="journey-pill-arrow">→</span>
-                <span class="journey-pill">Trade Execution</span>
-              </div>
-            </div>
-            <p style="max-width: 800px;">
-              We work closely with leadership to analyze product competitiveness, assess overseas regulatory requirements, define pricing and incoterms models, and establish reliable trade execution protocols.
-            </p>
-          </div>
-
-          <!-- Detailed Service 3 -->
-          <div style="margin-bottom: 4.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-subtle);">
-            <div class="section-header" style="max-width: 100%;">
-              <span class="eyebrow">Service 03</span>
-              <h2>International Business Setup</h2>
-              <p class="lead-text">
-                Consultancy for growing organizations planning to establish or expand commercial operations into selected overseas territories.
-              </p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-              <div class="meta-box" style="background: var(--ivory); border-color: var(--border-subtle);">
-                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Dubai / UAE</h4>
-                <p style="font-size: 0.9rem;">Advisory on strategic advantages, Free Zone vs. Mainland considerations, commercial opportunities, and entry planning.</p>
-              </div>
-              <div class="meta-box" style="background: var(--ivory); border-color: var(--border-subtle);">
-                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">USA & Canada</h4>
-                <p style="font-size: 0.9rem;">Market entry feasibility, operational prerequisites, trade landscape assessment, and initial expansion strategy.</p>
-              </div>
-              <div class="meta-box" style="background: var(--ivory); border-color: var(--border-subtle);">
-                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Selected African Markets</h4>
-                <p style="font-size: 0.9rem;">Exploring high-growth emerging regions, commercial demand validation, and strategic localized distribution channels.</p>
-              </div>
-            </div>
-            <p style="font-size: 0.85rem; color: #64748b; margin-top: 1.5rem;">
-              <em>Scope Note: Focuses on business structure guidance, market entry, business requirements, and strategic planning. We do not provide guaranteed incorporation or legal certification.</em>
-            </p>
-          </div>
-
-          <!-- Detailed Service 4 -->
-          <div style="margin-bottom: 4.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-subtle);">
-            <div class="section-header" style="max-width: 100%;">
-              <span class="eyebrow">Service 04</span>
-              <h2>International Trade Consultancy</h2>
-              <p class="lead-text">
-                Broad advisory counsel encompassing all practical dimensions of international trade compliance, operations, and buyer-seller engagements.
-              </p>
-            </div>
-            <div class="audience-grid">
-              <div class="audience-card">
-                <h3>Market Research</h3>
-                <p>Validation of overseas demand, pricing structures, and competitive presence.</p>
-              </div>
-              <div class="audience-card">
-                <h3>Buyer & Supplier</h3>
-                <p>Commercial qualification and development of trade relationships.</p>
-              </div>
-              <div class="audience-card">
-                <h3>Commercial Terms</h3>
-                <p>Review of contracts, Incoterms, payment conditions, and risk distribution.</p>
-              </div>
-              <div class="audience-card">
-                <h3>Documentation</h3>
-                <p>Guidance on trade paperwork, custom declarations, and logistics coordination.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Detailed Service 5 -->
-          <div>
-            <div class="section-header" style="max-width: 100%;">
-              <span class="eyebrow">Service 05</span>
-              <h2>Import–Export Financial Solutions</h2>
-              <p class="lead-text">
-                Assisting businesses in exploring structured financing options through recognized financial institutions.
-              </p>
-            </div>
-            <div style="background: var(--ivory); padding: 2.5rem; border: 1px solid var(--border-subtle);">
-              <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Financial Advisory Areas:</h4>
-              <ul class="service-list" style="margin-bottom: 1.5rem;">
-                <li><strong>Working Capital:</strong> Evaluating credit facilities to maintain operational cash flow during extended trade cycles.</li>
-                <li><strong>Trade Finance:</strong> Understanding Letters of Credit (LC), bank guarantees, and export credit mechanisms.</li>
-                <li><strong>Business Funding:</strong> Reviewing institutional options suitable for scaling commercial operations.</li>
-              </ul>
-              <p style="font-size: 0.85rem; color: #64748b;">
-                <em>Disclaimer: Dr. Aryankumar Verma provides advisory assistance in exploring financing options through relevant financial institutions. This consultancy does not engage in direct lending, credit underwriting, or guaranteed financing approvals.</em>
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 4: OUR APPROACH VIEW
-         ======================================================================== -->
-    <div id="view-approach" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Methodology</span>
-          <h1>Our Strategic Approach</h1>
-          <p class="sub-lead">Structured business guidance and continuous support for cross-border operations.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          
-          <div class="section-header">
-            <span class="eyebrow">The Five Core Pillars</span>
-            <h2>How We Guide Your Business</h2>
-            <p>Every assignment is executed through a disciplined framework to ensure clarity and mitigate cross-border trade friction.</p>
-          </div>
-
-          <div class="process-stages-grid" style="margin-bottom: 4rem;">
-            <div class="stage-card">
-              <div class="stage-num">01</div>
-              <div class="stage-name">UNDERSTAND</div>
-              <div class="stage-desc">
-                In-depth assessment of the business model, production capacities, product quality certifications, and core strategic intent.
-              </div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">02</div>
-              <div class="stage-name">PLAN</div>
-              <div class="stage-desc">
-                Formulating market-specific roadmaps, evaluating tariff and non-tariff requirements, and defining entry pricing models.
-              </div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">03</div>
-              <div class="stage-name">CONNECT</div>
-              <div class="stage-desc">
-                Building channels with prospective international buyers, qualified suppliers, or local market operational partners.
-              </div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">04</div>
-              <div class="stage-name">EXECUTE</div>
-              <div class="stage-desc">
-                Active guidance on commercial negotiations, export documentation, regulatory clearance, and logistics scheduling.
-              </div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-num">05</div>
-              <div class="stage-name">GROW</div>
-              <div class="stage-desc">
-                Continuous post-shipment advisory, repeat order optimization, and expansion into secondary regional territories.
-              </div>
-            </div>
-          </div>
-
-          <!-- Comprehensive Journey Diagram -->
-          <div class="journey-diagram">
-            <div class="journey-title">Detailed End-to-End International Journey</div>
-            <p style="color: #64748b; margin-bottom: 2rem;">A methodical progression from initial internal assessment to long-term global trade resilience.</p>
-
-            <div class="journey-steps">
-              <div class="journey-item active-step">
-                <span class="journey-step-num">STEP 01</span>
-                <span class="journey-step-text">BUSINESS ASSESSMENT — Evaluating manufacturing capability, commercial viability, and readiness</span>
-              </div>
-              <div class="journey-item">
-                <span class="journey-step-num">STEP 02</span>
-                <span class="journey-step-text">MARKET & PRODUCT STRATEGY — Identifying target markets, positioning, and compliance requirements</span>
-              </div>
-              <div class="journey-item">
-                <span class="journey-step-num">STEP 03</span>
-                <span class="journey-step-text">INTERNATIONAL SOURCING / BUYER DEVELOPMENT — Connecting with vetted trade partners and buyers</span>
-              </div>
-              <div class="journey-item">
-                <span class="journey-step-num">STEP 04</span>
-                <span class="journey-step-text">TRADE & DOCUMENTATION SUPPORT — Structuring commercial contracts, Incoterms, and export paper trails</span>
-              </div>
-              <div class="journey-item">
-                <span class="journey-step-num">STEP 05</span>
-                <span class="journey-step-text">LOGISTICS & EXECUTION GUIDANCE — Freight coordination, customs management, and delivery milestones</span>
-              </div>
-              <div class="journey-item">
-                <span class="journey-step-num">STEP 06</span>
-                <span class="journey-step-text">LONG-TERM INTERNATIONAL BUSINESS DEVELOPMENT — Sustainable market retention and channel expansion</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 5: WHO WE WORK WITH
-         ======================================================================== -->
-    <div id="view-who-we-work-with" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Client Ecosystem</span>
-          <h1>Who We Work With</h1>
-          <p class="sub-lead">Partnering with commercial entities across all stages of international trade.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">Target Partners</span>
-            <h2>Tailored Advisory for Commercial Leaders</h2>
-            <p>Our advisory is structured around the unique operational realities of distinct business types.</p>
-          </div>
-
-          <div class="audience-grid">
-            <div class="audience-card">
-              <div class="audience-icon">⚲</div>
-              <h3>Manufacturers</h3>
-              <p>Industrial units and factory operators aiming to export finished goods or source specialized machinery and raw materials abroad.</p>
-            </div>
-
-            <div class="audience-card">
-              <div class="audience-icon">⇄</div>
-              <h3>Exporters & Importers</h3>
-              <p>Active international trading firms seeking to optimize existing logistics routes, commercial terms, or enter new target markets.</p>
-            </div>
-
-            <div class="audience-card">
-              <div class="audience-icon">▤</div>
-              <h3>Traders & Distributors</h3>
-              <p>Wholesale businesses and distribution networks looking for dependable global sourcing channels or international product rights.</p>
-            </div>
-
-            <div class="audience-card">
-              <div class="audience-icon">▲</div>
-              <h3>MSMEs & Startups</h3>
-              <p>Early-stage and medium enterprises seeking structured guidance to navigate foreign trade regulations without costly trial-and-error.</p>
-            </div>
-
-            <div class="audience-card">
-              <div class="audience-icon">◈</div>
-              <h3>Entrepreneurs</h3>
-              <p>Visionary leaders launching new cross-border business ventures who require clear market positioning and strategic architecture.</p>
-            </div>
-
-            <div class="audience-card">
-              <div class="audience-icon">▣</div>
-              <h3>Business Owners</h3>
-              <p>Established domestic enterprise heads evaluating overseas expansion as a strategic driver of revenue diversification.</p>
-            </div>
-
-            <div class="audience-card" style="grid-column: span 2;">
-              <div class="audience-icon">🌐</div>
-              <h3>Companies Exploring International Markets</h3>
-              <p>Firms at any lifecycle stage that recognize the necessity of cross-border commerce and require experienced advisory counsel before committing capital.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 6: GLOBAL MARKETS
-         ======================================================================== -->
-    <div id="view-global-markets" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Geographic Focus</span>
-          <h1>Strategic Global Markets</h1>
-          <p class="sub-lead">Consultancy tailored around key commercial trade corridors and regional business hubs.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">Strategic Corridors</span>
-            <h2>Regional Focus Areas</h2>
-            <p>We provide focused market entry and trade development advisory for the specific jurisdictions listed below.</p>
-          </div>
-
-          <div class="market-regions-grid">
-            
-            <div class="market-box">
-              <div>
-                <span class="region-tag">Domestic & Export Base</span>
-                <h3>India</h3>
-                <p>Manufacturing analysis, export readiness for domestic companies, compliance with national foreign trade frameworks, and inbound sourcing execution.</p>
-              </div>
-            </div>
-
-            <div class="market-box">
-              <div>
-                <span class="region-tag">Middle East Gateway</span>
-                <h3>Dubai / UAE</h3>
-                <p>Commercial expansion planning, distribution hub setup advisory, cross-border commercial structuring, and re-export corridor strategies.</p>
-              </div>
-            </div>
-
-            <div class="market-box">
-              <div>
-                <span class="region-tag">North America</span>
-                <h3>United States</h3>
-                <p>Assessing product standards, regulatory considerations, commercial partnership frameworks, and export feasibility into the US market.</p>
-              </div>
-            </div>
-
-            <div class="market-box">
-              <div>
-                <span class="region-tag">North America</span>
-                <h3>Canada</h3>
-                <p>Trade entry strategies, regulatory awareness, supplier and buyer coordination across key Canadian commercial centers.</p>
-              </div>
-            </div>
-
-            <div class="market-box">
-              <div>
-                <span class="region-tag">High Growth Opportunity</span>
-                <h3>Selected African Markets</h3>
-                <p>Advising on emerging market entry, infrastructure trade channels, agricultural and manufactured goods trade feasibility in identified territories.</p>
-              </div>
-            </div>
-
-            <div class="market-box" style="background: var(--navy-900); color: var(--warm-white);">
-              <div>
-                <span class="region-tag" style="color: var(--gold-400);">Strategic Principle</span>
-                <h3 style="color: var(--pure-white);">Realistic Entry</h3>
-                <p style="color: #94a3b8;">
-                  We position international markets as strategic targets requiring rigorous due diligence, sensible budgeting, and compliance awareness—not guaranteed instant access.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 7: INSIGHTS VIEW
-         ======================================================================== -->
-    <div id="view-insights" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Practical Knowledge</span>
-          <h1>International Business Insights</h1>
-          <p class="sub-lead">Objective educational perspectives on global sourcing, trade compliance, and export strategy.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-white">
-        <div class="container">
-          <div class="insights-grid">
-            
-            <div class="insight-card">
-              <div>
-                <span class="cat">Export Fundamentals</span>
-                <h3>How to Start Exporting: A Practical Guide for Manufacturers</h3>
-                <p>An overview of the baseline requirements domestic manufacturers must address before pitching to overseas buyers, from quality standards to export licensing.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-            <div class="insight-card">
-              <div>
-                <span class="cat">Sourcing & Procurement</span>
-                <h3>Global Sourcing: Mitigating Risk in International Machinery Purchases</h3>
-                <p>Key checkpoints for evaluating overseas suppliers, validating technical specifications, and structuring milestone payment protections.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-            <div class="insight-card">
-              <div>
-                <span class="cat">Market Development</span>
-                <h3>Finding International Buyers: Moving Beyond Cold Inquiries</h3>
-                <p>Why structured commercial positioning and vetted trade directories yield higher-quality commercial relationships than untargeted outreach.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-            <div class="insight-card">
-              <div>
-                <span class="cat">Business Setup</span>
-                <h3>International Business Setup in Dubai: Essential First Steps</h3>
-                <p>A strategic breakdown of Free Zones vs Mainland structures, commercial priorities, and what businesses should prepare prior to incorporation.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-            <div class="insight-card">
-              <div>
-                <span class="cat">Trade Compliance</span>
-                <h3>Import Documentation: Avoiding Common Customs Bottlenecks</h3>
-                <p>A practical review of commercial invoices, packing lists, certificates of origin, and bill of lading accuracy to prevent costly port delays.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-            <div class="insight-card">
-              <div>
-                <span class="cat">Trade Finance</span>
-                <h3>Working Capital for Export Businesses: Understanding Options</h3>
-                <p>An educational perspective on navigating pre-shipment and post-shipment credit facilities through recognized banking institutions.</p>
-              </div>
-              <a href="#contact" onclick="navigateTo('contact')" class="read-link">Consult on This Topic →</a>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================================
-         VIEW 8: CONTACT VIEW
-         ======================================================================== -->
-    <div id="view-contact" class="page-view">
-      <div class="subpage-hero">
-        <div class="container">
-          <span class="eyebrow eyebrow-dark">Direct Consultation</span>
-          <h1>Initiate a Consultation</h1>
-          <p class="sub-lead">Discuss your trade requirements, sourcing objectives, or expansion strategy directly.</p>
-        </div>
-      </div>
-
-      <section class="section-py bg-ivory">
-        <div class="container">
-          <div class="consultation-wrap">
-            
-            <!-- Left Info Panel -->
-            <div class="consult-info">
-              <span class="eyebrow">Professional Engagement</span>
-              <h3>Dr. Aryankumar Verma</h3>
-              <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
-                Business Management Consultant<br>
-                International Trade & Export Business Consultant
-              </p>
-              <p style="font-size: 0.9rem; color: #64748b;">
-                Every consultation begins with a focused discussion on your current operational footing, product portfolio, and specific cross-border objectives.
-              </p>
-
-              <div class="consult-meta-list">
-                <div class="consult-meta-item">
-                  <div class="lbl">Consultation Phone Line</div>
-                  <div class="val">
-                    <a href="tel:9327155550" style="color:var(--navy-900);">9327155550</a>
-                  </div>
-                </div>
-
-                <div class="consult-meta-item">
-                  <div class="lbl">Primary Advisory Regions</div>
-                  <div class="val" style="font-size: 0.95rem; font-weight: 500;">
-                    India | UAE | USA | Canada | Selected African Markets
-                  </div>
-                </div>
-
-                <div class="consult-meta-item">
-                  <div class="lbl">Professional Engagement Mode</div>
-                  <div class="val" style="font-size: 0.95rem; font-weight: 500;">
-                    Scheduled Consultation • Advisory Engagements
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Form Panel -->
-            <div>
-              <div id="formSuccessAlert" class="form-success-message">
-                Thank you for your inquiry. Your consultation request has been recorded. Dr. Aryankumar Verma's office will review your requirements and reach out via the provided phone number.
-              </div>
-
-              <form id="consultationForm" class="consult-form" onsubmit="handleFormSubmit(event)">
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label for="fullName">Your Name *</label>
-                    <input type="text" id="fullName" class="form-control" placeholder="Full Name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="companyName">Company Name *</label>
-                    <input type="text" id="companyName" class="form-control" placeholder="Company / Enterprise" required>
-                  </div>
-                </div>
-
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label for="phone">Phone / WhatsApp *</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="e.g. 9327155550" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" class="form-control" placeholder="email@company.com" required>
-                  </div>
-                </div>
-
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label for="businessType">Business Type *</label>
-                    <select id="businessType" class="form-control" required>
-                      <option value="" disabled selected>Select Business Type</option>
-                      <option value="Manufacturer">Manufacturer</option>
-                      <option value="Trader">Trader</option>
-                      <option value="Exporter">Exporter</option>
-                      <option value="Importer">Importer</option>
-                      <option value="Distributor">Distributor</option>
-                      <option value="Startup">Startup</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="requirement">Primary Advisory Need *</label>
-                    <select id="requirement" class="form-control" required>
-                      <option value="" disabled selected>Select Primary Requirement</option>
-                      <option value="Export Development">Export Development</option>
-                      <option value="Global Sourcing">Global Sourcing</option>
-                      <option value="Import Support">Import Support</option>
-                      <option value="International Business Setup">International Business Setup</option>
-                      <option value="Market Entry">Market Entry</option>
-                      <option value="Trade Consultancy">Trade Consultancy</option>
-                      <option value="Financial Solutions">Financial Solutions</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label for="currentMarket">Current Operating Market</label>
-                    <input type="text" id="currentMarket" class="form-control" placeholder="e.g. India, Domestic">
-                  </div>
-                  <div class="form-group">
-                    <label for="targetMarket">Target International Market</label>
-                    <input type="text" id="targetMarket" class="form-control" placeholder="e.g. UAE, USA, Canada, Africa">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="message">Summary of Your Requirement / Product</label>
-                  <textarea id="message" class="form-control" rows="3" placeholder="Briefly describe your product, current trade challenge, or expansion goal..."></textarea>
-                </div>
-
-                <div class="form-disclaimer">
-                  All shared business details remain strictly confidential and are evaluated exclusively to structure your advisory consultation.
-                </div>
-
-                <button type="submit" class="btn btn-gold" style="width: 100%; padding: 1rem;">
-                  Request Consultation Appointment
-                </button>
-              </form>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </div>
-
-  </main>
+  </section>
 
   <!-- ==========================================================================
-       SUBTLE FLOATING DIRECT CONTACT BUTTON
+       2. TICKER — WHO WE WORK WITH
        ========================================================================== -->
-  <a href="https://wa.me/919327155550" target="_blank" rel="noopener" class="quick-contact-float" title="Contact via WhatsApp">
-    <span class="pulse-dot"></span>
-    <span>Consultation: 9327155550</span>
-  </a>
+  <section class="ticker-section">
+    <div class="ticker-belt">
+      <span class="ticker-item">Manufacturers</span>
+      <span class="ticker-item">Exporters</span>
+      <span class="ticker-item">Importers</span>
+      <span class="ticker-item">Traders</span>
+      <span class="ticker-item">Distributors</span>
+      <span class="ticker-item">MSMEs</span>
+      <span class="ticker-item">Startups</span>
+      <span class="ticker-item">Entrepreneurs</span>
+      <span class="ticker-item">Business Owners</span>
+      <!-- Duplicate Set for Seamless Continuous Loop -->
+      <span class="ticker-item">Manufacturers</span>
+      <span class="ticker-item">Exporters</span>
+      <span class="ticker-item">Importers</span>
+      <span class="ticker-item">Traders</span>
+      <span class="ticker-item">Distributors</span>
+      <span class="ticker-item">MSMEs</span>
+      <span class="ticker-item">Startups</span>
+      <span class="ticker-item">Entrepreneurs</span>
+      <span class="ticker-item">Business Owners</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. EDITORIAL PROFILE — DR. ARYANKUMAR VERMA
+       ========================================================================== */
+  ========================================================================== -->
+  <section class="section-sp editorial-profile-section" id="consultant">
+    <div class="wrap">
+      
+      <div class="profile-editorial-grid">
+        
+        <!-- Portrait Composition Area -->
+        <div class="portrait-stage">
+          <div class="portrait-frame">
+            <div class="portrait-inner-card">
+              <div class="initials">AV</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-white); margin-bottom: 0.2rem;">
+                Dr. Aryankumar Verma
+              </div>
+              <div class="direct-line">Consultation Line: 9327155550</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative & Structured Credential Timeline -->
+        <div class="profile-narrative">
+          <span class="eyebrow-tag">Advisory Leadership</span>
+          <h2>Dr. Aryankumar Verma</h2>
+          <div class="profile-position-sub">
+            Business Management Consultant • International Trade Consultant • Export Business Advisor
+          </div>
+
+          <p class="profile-editorial-p">
+            Dr. Aryankumar Verma has several years of professional involvement in the Import &amp; Export and business development sector. His advisory practice delivers pragmatic, high-level counsel designed to navigate complex market entry frameworks, international sourcing channels, and sustainable cross-border commercial execution.
+          </p>
+
+          <!-- Verified Credentials Strip (Strictly as per PDF) -->
+          <div class="cred-timeline">
+            
+            <div class="cred-entry">
+              <div class="val">Ph.D. in Business Management</div>
+              <div class="desc">Academic grounding in structured enterprise expansion and strategic administration.</div>
+            </div>
+
+            <div class="cred-entry">
+              <div class="val">International Trade Advisory</div>
+              <div class="desc">Specializing in cross-border trade strategy, commercial terms, and compliance systems.</div>
+            </div>
+
+            <div class="cred-entry">
+              <div class="val">Export Development</div>
+              <div class="desc">Direct advisory guiding manufacturers through buyer identification, positioning, and trade execution.</div>
+            </div>
+
+            <div class="cred-entry">
+              <div class="val">Global Sourcing &amp; Setup</div>
+              <div class="desc">Advisory on machinery acquisition, supplier vetting, and business setup across key international jurisdictions.</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. SERVICES — NOT BORING CARDS (EDITORIAL PORTFOLIO VIEW)
+       ========================================================================== -->
+  <section class="section-sp services-editorial-section" id="services">
+    <div class="wrap">
+      
+      <div class="section-top-statement">
+        <span class="eyebrow-tag">Consulting Capabilities</span>
+        <h2 class="editorial-h2">
+          Specialized Practice Areas <br>
+          <span class="serif-italic">Grounded in Execution.</span>
+        </h2>
+      </div>
+
+      <div class="services-layout-split">
+        
+        <!-- Interactive Navigation Column -->
+        <div class="service-nav-stack" id="serviceNavStack">
+          
+          <div class="service-nav-item active" data-index="0">
+            <span class="srv-index">01</span>
+            <span class="srv-label">Global Sourcing &amp; Import</span>
+          </div>
+
+          <div class="service-nav-item" data-index="1">
+            <span class="srv-index">02</span>
+            <span class="srv-label">Export Business Development</span>
+          </div>
+
+          <div class="service-nav-item" data-index="2">
+            <span class="srv-index">03</span>
+            <span class="srv-label">International Business Setup</span>
+          </div>
+
+          <div class="service-nav-item" data-index="3">
+            <span class="srv-index">04</span>
+            <span class="srv-label">International Trade Consultancy</span>
+          </div>
+
+          <div class="service-nav-item" data-index="4">
+            <span class="srv-index">05</span>
+            <span class="srv-label">Trade Financial Solutions</span>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Service Display Stage -->
+        <div class="service-display-stage">
+          <div class="service-backdrop-image" id="serviceImageBg" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80');"></div>
+          
+          <div class="service-detail-overlay">
+            <div class="active-srv-no" id="srvActiveNo">Service 01 / 05</div>
+            <h3 id="srvActiveTitle">Global Sourcing &amp; Import Consultancy</h3>
+            <p id="srvActiveDesc">
+              Supporting enterprises seeking to procure machinery, raw materials, technology, and products internationally with end-to-end guidance from identification to customs clearance.
+            </p>
+
+            <div class="service-capability-capsules" id="srvActiveCapsules">
+              <span class="cap-tag">Machinery &amp; Industrial Equipment</span>
+              <span class="cap-tag">Raw Materials</span>
+              <span class="cap-tag">Supplier Identification</span>
+              <span class="cap-tag">Commercial Evaluation</span>
+              <span class="cap-tag">Logistics Coordination</span>
+            </div>
+
+            <a href="#consult" class="btn-link-editorial">Explore This Service Scope →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. THE JOURNEY — HORIZONTAL INTERACTIVE STAGES
+       ========================================================================== -->
+  <section class="section-sp journey-narrative-section" id="journey">
+    <div class="wrap">
+      
+      <div style="max-width: 760px;">
+        <span class="eyebrow-tag">Methodical Progression</span>
+        <h2 class="editorial-h2">
+          The Five-Stage <span class="serif-italic">Advisory Path.</span>
+        </h2>
+        <p style="color: var(--text-light-muted); font-size: 1.15rem; margin-top: 1rem; font-weight: 300;">
+          Practical business guidance and continuous support for enterprises exploring international markets and building cross-border trade operations.
+        </p>
+      </div>
+
+      <!-- Connecting Journey Selector -->
+      <div class="journey-control-bar">
+        <div class="journey-connecting-line"></div>
+        <div class="journey-connecting-fill" id="journeyFillBar" style="width: 20%;"></div>
+
+        <button class="stage-milestone-btn active" onclick="activateStage(0)">
+          <div class="stage-dot">01</div>
+          <span class="stage-title">Understand</span>
+        </button>
+
+        <button class="stage-milestone-btn" onclick="activateStage(1)">
+          <div class="stage-dot">02</div>
+          <span class="stage-title">Plan</span>
+        </button>
+
+        <button class="stage-milestone-btn" onclick="activateStage(2)">
+          <div class="stage-dot">03</div>
+          <span class="stage-title">Connect</span>
+        </button>
+
+        <button class="stage-milestone-btn" onclick="activateStage(3)">
+          <div class="stage-dot">04</div>
+          <span class="stage-title">Execute</span>
+        </button>
+
+        <button class="stage-milestone-btn" onclick="activateStage(4)">
+          <div class="stage-dot">05</div>
+          <span class="stage-title">Grow</span>
+        </button>
+      </div>
+
+      <!-- Active Stage Narrative Canvas -->
+      <div class="stage-active-canvas">
+        <div class="stage-canvas-left">
+          <div class="num-giant" id="stageBigNum">01</div>
+          <h3 id="stageTitleHeading">Understand</h3>
+        </div>
+
+        <div class="stage-canvas-right">
+          <p class="lead" id="stageLeadText">
+            Conducting comprehensive business assessment to establish your operational capabilities, domestic product positioning, and export-readiness baseline.
+          </p>
+          <p class="detail" id="stageDetailText">
+            We evaluate capacity, product standards, unit economics, target ambitions, and internal competencies before committing resources to international market initiatives.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. FROM LOCAL TO GLOBAL (PROGRESSION DIAGRAM)
+       ========================================================================== -->
+  <section class="section-sp local-global-section" id="local-to-global">
+    <div class="wrap">
+      
+      <div style="max-width: 820px;">
+        <span class="eyebrow-tag">Strategic Architecture</span>
+        <h2 class="editorial-h2">
+          From Local Business <br>
+          <span class="serif-italic">To Global Opportunity.</span>
+        </h2>
+        <p style="color: var(--text-light-muted); font-size: 1.15rem; margin-top: 1rem; font-weight: 300;">
+          A structured sequence engineered to transform a domestic manufacturer or trader into an active, compliant international enterprise.
+        </p>
+      </div>
+
+      <!-- Progression Waterfall -->
+      <div class="progression-waterfall">
+        
+        <div class="progression-row">
+          <span class="p-step">STEP 01</span>
+          <h3 class="p-name">Domestic Business</h3>
+          <p class="p-desc">Auditing the domestic operational foundation, manufacturing volume, and product differentiation factors.</p>
+        </div>
+
+        <div class="progression-row">
+          <span class="p-step">STEP 02</span>
+          <h3 class="p-name">Market Strategy</h3>
+          <p class="p-desc">Identifying high-potential foreign territories, pricing models, tariff requirements, and market entry routes.</p>
+        </div>
+
+        <div class="progression-row">
+          <span class="p-step">STEP 03</span>
+          <h3 class="p-name">Buyer / Supplier</h3>
+          <p class="p-desc">Vetting counterparties, developing buyer relationships, and establishing qualified sourcing pipelines.</p>
+        </div>
+
+        <div class="progression-row">
+          <span class="p-step">STEP 04</span>
+          <h3 class="p-name">Trade Execution</h3>
+          <p class="p-desc">Structuring contracts, Incoterms, trade finance mechanisms, logistics, and mandatory customs documentation.</p>
+        </div>
+
+        <div class="progression-row">
+          <span class="p-step">STEP 05</span>
+          <h3 class="p-name">Global Expansion</h3>
+          <p class="p-desc">Long-term cross-border business development, multi-market presence, and continuous trade advisory support.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. DUAL EDITORIAL BANNERS: SOURCING & EXPORT DEVELOPMENT
+       ========================================================================== -->
+  <section class="dual-editorial-banners">
+    
+    <!-- Left: Sourcing -->
+    <div class="banner-col">
+      <div class="banner-img-bg" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80');"></div>
+      
+      <div class="banner-content">
+        <span class="eyebrow-tag">Global Procurement</span>
+        <h3 class="editorial-h2" style="font-size: 2.8rem; margin-bottom: 1.5rem;">Global Sourcing</h3>
+        
+        <div class="banner-overlay-list">
+          <span>Machinery &amp; Industrial Units</span>
+          <span class="accent">Raw Materials &amp; Inputs</span>
+          <span>Finished Goods &amp; Technology</span>
+          <span>Business Equipment</span>
+        </div>
+
+        <p class="banner-subtext">
+          Source globally. Evaluate intelligently. Execute with structure. From initial supplier screening to international freight and clearance.
+        </p>
+      </div>
+
+      <div style="position:relative; z-index:2;">
+        <a href="#consult" class="btn-lux">Initiate Sourcing Consultation</a>
+      </div>
+    </div>
+
+    <!-- Right: Export Development -->
+    <div class="banner-col">
+      <div class="banner-img-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-c6a4d275a2d6?auto=format&fit=crop&w=1200&q=80');"></div>
+
+      <div class="banner-content">
+        <span class="eyebrow-tag">Product Export Expansion</span>
+        <h3 class="editorial-h2" style="font-size: 2.8rem; margin-bottom: 1.25rem;">
+          Take Your Product Beyond Domestic Borders.
+        </h3>
+
+        <div class="export-step-flow">
+          <span class="export-step-pill">Market</span>
+          <span class="export-arrow">→</span>
+          <span class="export-step-pill">Position</span>
+          <span class="export-arrow">→</span>
+          <span class="export-step-pill">Buyers</span>
+          <span class="export-arrow">→</span>
+          <span class="export-step-pill">Strategy</span>
+          <span class="export-arrow">→</span>
+          <span class="export-step-pill">Documentation</span>
+          <span class="export-arrow">→</span>
+          <span class="export-step-pill">Execution</span>
+        </div>
+
+        <p class="banner-subtext">
+          Engineered specifically for manufacturers aiming to develop sustainable international buyer networks with structured risk management.
+        </p>
+      </div>
+
+      <div style="position:relative; z-index:2;">
+        <a href="#consult" class="btn-lux">Explore Export Opportunities</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       8. GLOBAL MARKETS — WHERE BUSINESS MEETS OPPORTUNITY
+       ========================================================================== -->
+  <section class="section-sp global-markets-section" id="markets">
+    <div class="wrap">
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <span class="eyebrow-tag">Strategic Horizons</span>
+          <h2 class="editorial-h2">
+            Where Business Meets <br>
+            <span class="serif-italic">Opportunity.</span>
+          </h2>
+        </div>
+        <p style="color: var(--text-light-muted); max-width: 440px; font-weight: 300;">
+          Focused market advisory spanning established trade corridors and high-potential emerging economies.
+        </p>
+      </div>
+
+      <!-- Vector Map Stage -->
+      <div class="market-map-canvas">
+        <svg class="interactive-world-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized Continent Blobs -->
+          <path fill="rgba(255,255,255,0.06)" d="M150,120 Q220,90 280,140 T220,260 T140,200 Z" /> <!-- North America -->
+          <path fill="rgba(255,255,255,0.05)" d="M240,290 Q290,280 300,360 T250,440 Z" /> <!-- South America -->
+          <path fill="rgba(255,255,255,0.06)" d="M480,120 Q560,100 580,180 T490,260 Z" /> <!-- Europe -->
+          <path fill="rgba(255,255,255,0.07)" d="M500,220 Q580,210 590,320 T520,400 T470,300 Z" /> <!-- Africa -->
+          <path fill="rgba(255,255,255,0.08)" d="M600,100 Q780,80 820,200 T680,300 T620,180 Z" /> <!-- Asia -->
+
+          <!-- Dynamic Connection Arcs Originating from India -->
+          <!-- Origin: India (approx 660, 230) -->
+          <path class="route-path" d="M 660 230 Q 610 200 565 215" /> <!-- to UAE -->
+          <path class="route-path" d="M 660 230 Q 450 80 230 150" /> <!-- to USA/Canada -->
+          <path class="route-path" d="M 660 230 Q 600 300 530 310" /> <!-- to Africa -->
+
+          <!-- Hotspots -->
+          <!-- India -->
+          <g class="map-hotspot" onclick="selectMarket(0)">
+            <circle cx="660" cy="230" r="10" class="ring" stroke="var(--gold-primary)" stroke-width="1.5" fill="none" />
+            <circle cx="660" cy="230" r="4" fill="var(--gold-primary)" />
+            <text x="675" y="235" class="node-text">India (Base)</text>
+          </g>
+
+          <!-- UAE -->
+          <g class="map-hotspot" onclick="selectMarket(1)">
+            <circle cx="565" cy="215" r="8" class="ring" stroke="var(--gold-primary)" stroke-width="1" fill="none" />
+            <circle cx="565" cy="215" r="4" fill="var(--gold-primary)" />
+            <text x="540" y="200" class="node-text">Dubai / UAE</text>
+          </g>
+
+          <!-- USA -->
+          <g class="map-hotspot" onclick="selectMarket(2)">
+            <circle cx="210" cy="170" r="8" class="ring" stroke="var(--gold-primary)" stroke-width="1" fill="none" />
+            <circle cx="210" cy="170" r="4" fill="var(--gold-primary)" />
+            <text x="175" y="160" class="node-text">USA</text>
+          </g>
+
+          <!-- Canada -->
+          <g class="map-hotspot" onclick="selectMarket(3)">
+            <circle cx="230" cy="120" r="8" class="ring" stroke="var(--gold-primary)" stroke-width="1" fill="none" />
+            <circle cx="230" cy="120" r="4" fill="var(--gold-primary)" />
+            <text x="210" y="105" class="node-text">Canada</text>
+          </g>
+
+          <!-- Selected Africa -->
+          <g class="map-hotspot" onclick="selectMarket(4)">
+            <circle cx="530" cy="310" r="8" class="ring" stroke="var(--gold-primary)" stroke-width="1" fill="none" />
+            <circle cx="530" cy="310" r="4" fill="var(--gold-primary)" />
+            <text x="545" y="325" class="node-text">Selected Africa</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Regional Tabs -->
+      <div class="market-region-selector-tabs">
+        <button class="market-tab-btn active" onclick="selectMarket(0)">
+          <span class="tag">Anchor Market</span>
+          <span class="title">India</span>
+        </button>
+
+        <button class="market-tab-btn" onclick="selectMarket(1)">
+          <span class="tag">Commercial Hub</span>
+          <span class="title">Dubai / UAE</span>
+        </button>
+
+        <button class="market-tab-btn" onclick="selectMarket(2)">
+          <span class="tag">Target Region</span>
+          <span class="title">USA</span>
+        </button>
+
+        <button class="market-tab-btn" onclick="selectMarket(3)">
+          <span class="tag">Trade Corridor</span>
+          <span class="title">Canada</span>
+        </button>
+
+        <button class="market-tab-btn" onclick="selectMarket(4)">
+          <span class="tag">Emerging Frontier</span>
+          <span class="title">Selected Africa</span>
+        </button>
+      </div>
+
+      <!-- Market Specific Panel (Strictly grounded in source) -->
+      <div class="market-detail-panel">
+        <div class="desc" id="marketDetailText">
+          <strong>India:</strong> Advisory on domestic manufacturing competitiveness, export compliance frameworks, quality certification for export readiness, and inbound industrial sourcing strategies.
+        </div>
+        <div>
+          <a href="#consult" class="btn-link-editorial">Consult on this market →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. PHILOSOPHICAL STATEMENT SECTION
+       ========================================================================== -->
+  <section class="statement-break-section">
+    <div class="wrap">
+      <p class="statement-quote-p">
+        “Global business begins with the right strategy, the right market, and the right execution.”
+      </p>
+      <p class="statement-sub-p">
+        Every business is different. Our role is to understand the business, identify relevant opportunities, develop a practical approach, and provide structured support throughout the journey.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. DRAMATIC FULL-SCREEN CONSULTATION CTA & FORM
+       ========================================================================== -->
+  <section class="dramatic-cta-section" id="consult">
+    <div class="wrap">
+      
+      <div class="cta-editorial-header">
+        <span class="eyebrow-tag">Direct Engagement</span>
+        <h2 class="editorial-h2">
+          Your Next Market <br>
+          <span class="serif-italic">Could Be A Global One.</span>
+        </h2>
+        <p style="color: var(--text-light-muted); font-size: 1.18rem; font-weight: 300;">
+          Let's understand your business, identify relevant opportunities, and build a practical path toward international expansion.
+        </p>
+      </div>
+
+      <!-- Editorial Form Stage -->
+      <div class="cta-form-stage">
+        
+        <div id="formSuccessMessage" class="form-success-banner">
+          Thank you. Your consultation request has been registered. Dr. Aryankumar Verma's office will review your commercial background and reach out directly at the provided phone number.
+        </div>
+
+        <form id="leadConsultationForm" onsubmit="handleLeadSubmit(event)">
+          
+          <div class="editorial-form-grid">
+            
+            <div class="input-field-group">
+              <label for="fName">Your Name *</label>
+              <input type="text" id="fName" required placeholder="Full Name">
+            </div>
+
+            <div class="input-field-group">
+              <label for="cName">Company Name *</label>
+              <input type="text" id="cName" required placeholder="Company / Factory">
+            </div>
+
+            <div class="input-field-group">
+              <label for="phoneNum">Phone / WhatsApp *</label>
+              <input type="tel" id="phoneNum" required placeholder="e.g. 9327155550">
+            </div>
+
+            <div class="input-field-group">
+              <label for="emailAddr">Email Address *</label>
+              <input type="email" id="emailAddr" required placeholder="name@domain.com">
+            </div>
+
+            <div class="input-field-group">
+              <label for="bizType">Business Type *</label>
+              <select id="bizType" required>
+                <option value="" disabled selected>Select Classification</option>
+                <option value="Manufacturer">Manufacturer</option>
+                <option value="Trader">Trader</option>
+                <option value="Exporter">Exporter</option>
+                <option value="Importer">Importer</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Startup">Startup</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="input-field-group">
+              <label for="primaryReq">Consulting Requirement *</label>
+              <select id="primaryReq" required>
+                <option value="" disabled selected>Select Primary Advisory Need</option>
+                <option value="Export Development">Export Business Development</option>
+                <option value="Global Sourcing">Global Sourcing &amp; Import</option>
+                <option value="International Setup">International Business Setup</option>
+                <option value="Trade Consultancy">International Trade Consultancy</option>
+                <option value="Financial Solutions">Trade Financial Solutions</option>
+                <option value="Market Entry">Market Entry Planning</option>
+              </select>
+            </div>
+
+            <div class="input-field-group">
+              <label for="curMarket">Current Market</label>
+              <input type="text" id="curMarket" placeholder="e.g. India (Domestic)">
+            </div>
+
+            <div class="input-field-group">
+              <label for="tarMarket">Target Market</label>
+              <input type="text" id="tarMarket" placeholder="e.g. UAE, USA, Canada, Africa">
+            </div>
+
+            <div class="input-field-group full">
+              <label for="briefReq">Product Details / Trade Objective</label>
+              <textarea id="briefReq" placeholder="Briefly specify your product category, volume, or specific trade objective..."></textarea>
+            </div>
+
+          </div>
+
+          <div style="margin-top: 2.5rem; text-align: center;">
+            <button type="submit" class="btn-lux" style="width: 100%;">
+              Start A Conversation
+            </button>
+          </div>
+
+          <p style="font-size: 0.75rem; text-align: center; color: var(--text-light-muted); margin-top: 1.25rem;">
+            Direct consultation line: <strong>9327155550</strong>. All commercial disclosures remain privileged and confidential.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
 
   <!-- ==========================================================================
        FOOTER
        ========================================================================== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top-grid">
+    <div class="wrap">
+      
+      <div class="footer-split">
         
-        <!-- Col 1: Identity -->
-        <div class="footer-col">
-          <div style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--pure-white); font-weight: 600; margin-bottom: 0.35rem;">
-            DR. ARYANKUMAR VERMA
-          </div>
-          <p style="font-size: 0.8rem; color: var(--gold-400); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem;">
-            Ph.D. in Business Management
-          </p>
-          <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8;">
-            Business Management Consultant & International Trade Consultant providing structured advisory for manufacturers, traders, and growing enterprises across global markets.
+        <div class="footer-brand">
+          <h4>Dr. Aryankumar Verma</h4>
+          <p class="qual">Ph.D. in Business Management</p>
+          <p class="bio">
+            Business Management Consultant &amp; International Trade Consultant providing structured advisory for manufacturers, traders, and growing businesses across global markets.
           </p>
         </div>
 
-        <!-- Col 2: Navigation -->
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <div class="footer-links">
-            <a href="#home" onclick="navigateTo('home')">Home</a>
-            <a href="#about" onclick="navigateTo('about')">About Consultant</a>
-            <a href="#services" onclick="navigateTo('services')">All Services</a>
-            <a href="#approach" onclick="navigateTo('approach')">Our Approach</a>
-            <a href="#who-we-work-with" onclick="navigateTo('who-we-work-with')">Who We Work With</a>
-            <a href="#global-markets" onclick="navigateTo('global-markets')">Global Markets</a>
-            <a href="#insights" onclick="navigateTo('insights')">Insights</a>
-            <a href="#contact" onclick="navigateTo('contact')">Book Consultation</a>
-          </div>
+        <div class="footer-links-col">
+          <h5>Specialized Advisory</h5>
+          <ul>
+            <li><a href="#services">Global Sourcing &amp; Import</a></li>
+            <li><a href="#services">Export Business Development</a></li>
+            <li><a href="#services">International Business Setup</a></li>
+            <li><a href="#services">International Trade Consultancy</a></li>
+            <li><a href="#services">Import–Export Financial Solutions</a></li>
+          </ul>
         </div>
 
-        <!-- Col 3: Services -->
-        <div class="footer-col">
-          <h4>Core Services</h4>
-          <div class="footer-links">
-            <a href="#services" onclick="navigateTo('services')">Global Sourcing</a>
-            <a href="#services" onclick="navigateTo('services')">Export Development</a>
-            <a href="#services" onclick="navigateTo('services')">International Business Setup</a>
-            <a href="#services" onclick="navigateTo('services')">Trade Consultancy</a>
-            <a href="#services" onclick="navigateTo('services')">Financial Solutions</a>
-          </div>
-        </div>
-
-        <!-- Col 4: Regional Footprint & Contact -->
-        <div class="footer-col">
-          <h4>Consultation & Focus</h4>
-          <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 0.75rem;">
-            <strong>Phone / WhatsApp:</strong><br>
-            <a href="tel:9327155550" style="color:var(--pure-white);">9327155550</a>
+        <div class="footer-links-col">
+          <h5>Direct Contact &amp; Hubs</h5>
+          <p style="color: var(--text-white); font-weight: 700; margin-bottom: 0.5rem;">
+            Consultation Phone:<br>
+            <a href="tel:9327155550" style="color: var(--gold-primary);">9327155550</a>
           </p>
-          <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6;">
-            <strong>Market Regions:</strong><br>
+          <p style="color: var(--text-light-muted); font-size: 0.85rem; line-height: 1.6;">
+            Advisory Footprint:<br>
             India | UAE | USA | Canada | Selected African Markets
           </p>
         </div>
 
       </div>
 
-      <!-- Legal & Disclaimer -->
-      <div class="footer-bottom">
-        <div>
-          &copy; <span id="yearSpan">2026</span> Dr. Aryankumar Verma. All rights reserved.
-        </div>
-        <div class="legal-links">
-          <a href="#privacy" onclick="alert('Privacy Policy: All client inquiries and shared commercial data are held in strict professional confidence.')">Privacy Policy</a>
-          <a href="#terms" onclick="alert('Terms: Advisory services represent professional strategic counsel. Global market entry and financial outcomes depend on execution, market conditions, and regulatory compliance.')">Terms of Advisory</a>
-          <a href="#disclaimer" onclick="alert('Disclaimer: Advisory in financial solutions represents guidance in exploring options through financial institutions, not direct lending or guaranteed funding.')">Disclaimer</a>
+      <div class="footer-bottom-row">
+        <div>&copy; 2026 Dr. Aryankumar Verma. All rights reserved.</div>
+        <div style="font-size: 0.75rem; color: #556070;">
+          Financial Solutions advisory represents guidance in exploring options through financial institutions, not direct lending.
         </div>
       </div>
+
     </div>
   </footer>
 
+  <!-- Subtle Floating Contact Indicator -->
+  <a href="https://wa.me/919327155550" target="_blank" rel="noopener" class="contact-float-pill">
+    <span class="live-dot"></span>
+    <span>Consultation: 9327155550</span>
+  </a>
+
   <!-- ==========================================================================
-       CLIENT-SIDE ROUTING & INTERACTION SCRIPT
+       JAVASCRIPT: INTERACTIVITY & SYSTEM STATE
        ========================================================================== -->
   <script>
-    // Set Dynamic Year
-    document.getElementById('yearSpan').textContent = new Date().getFullYear();
-
-    // Client-side Router
-    const views = {
-      'home': document.getElementById('view-home'),
-      'about': document.getElementById('view-about'),
-      'services': document.getElementById('view-services'),
-      'approach': document.getElementById('view-approach'),
-      'who-we-work-with': document.getElementById('view-who-we-work-with'),
-      'global-markets': document.getElementById('view-global-markets'),
-      'insights': document.getElementById('view-insights'),
-      'contact': document.getElementById('view-contact')
-    };
-
-    function navigateTo(targetRoute) {
-      const cleanRoute = targetRoute.replace('#', '') || 'home';
-      
-      // Fallback to home if route not recognized
-      const activeView = views[cleanRoute] ? cleanRoute : 'home';
-
-      // Switch active class on pages
-      Object.keys(views).forEach(key => {
-        if (views[key]) {
-          views[key].classList.remove('active');
-        }
-      });
-      views[activeView].classList.add('active');
-
-      // Update Desktop Nav Active State
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('data-route') === activeView) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-
-      // Update Mobile Nav Active State
-      document.querySelectorAll('.mobile-nav-drawer a').forEach(link => {
-        if (link.getAttribute('data-route') === activeView) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-
-      // Close mobile drawer if open
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileDrawer.classList.contains('open')) {
-        mobileDrawer.classList.remove('open');
+    // Data: 5 Core Services as per PDF
+    const serviceData = [
+      {
+        index: "01",
+        noStr: "Service 01 / 05",
+        title: "Global Sourcing & Import Consultancy",
+        desc: "Structured support for businesses looking to procure machinery, raw materials, technology, and products internationally with end-to-end guidance from supplier identification to customs logistics.",
+        img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+        capsules: ["Machinery & Industrial Equipment", "Raw Materials", "Supplier Identification", "Commercial Evaluation", "Logistics Coordination"]
+      },
+      {
+        index: "02",
+        noStr: "Service 02 / 05",
+        title: "Export Business Development",
+        desc: "Designed for manufacturers and product-based businesses seeking to move beyond domestic borders through strategic product positioning, vetted international buyers, and compliant export execution.",
+        img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80",
+        capsules: ["Market Identification", "Product Positioning", "Buyer Identification", "Export Strategy", "Documentation & Logistics", "Trade Execution"]
+      },
+      {
+        index: "03",
+        noStr: "Service 03 / 05",
+        title: "International Business Setup",
+        desc: "Consultancy for growing organizations planning to establish or expand operations into key international commercial jurisdictions with strategic entry models.",
+        img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+        capsules: ["Dubai / UAE Setup", "USA Market Entry", "Canada Expansion", "Selected African Markets", "Business Structure Guidance"]
+      },
+      {
+        index: "04",
+        noStr: "Service 04 / 05",
+        title: "International Trade Consultancy",
+        desc: "Comprehensive advisory counsel addressing the practical and commercial complexities of global trade negotiation, contractual terms, Incoterms, and customs workflows.",
+        img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+        capsules: ["Market Research", "Buyer & Supplier Development", "Trade Strategy", "Commercial Terms", "Export Documentation", "International Communication"]
+      },
+      {
+        index: "05",
+        noStr: "Service 05 / 05",
+        title: "Import–Export Financial Solutions",
+        desc: "Assisting businesses in exploring suitable financing options through authorized financial institutions to maintain cash flow throughout extended international trade cycles.",
+        img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+        capsules: ["Working Capital Assessment", "Trade Finance Coordination", "Business Funding Options", "Institutional Liaison"]
       }
+    ];
 
-      // Scroll smoothly to top of content
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Service Interactive Switcher
+    const srvNavItems = document.querySelectorAll('.service-nav-item');
+    const srvActiveNo = document.getElementById('srvActiveNo');
+    const srvActiveTitle = document.getElementById('srvActiveTitle');
+    const srvActiveDesc = document.getElementById('srvActiveDesc');
+    const srvActiveCapsules = document.getElementById('srvActiveCapsules');
+    const serviceImageBg = document.getElementById('serviceImageBg');
 
-      // Update Hash without jump
-      if (history.pushState) {
-        history.pushState(null, null, '#' + activeView);
-      } else {
-        location.hash = '#' + activeView;
-      }
+    srvNavItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const idx = parseInt(item.getAttribute('data-index'));
+        updateServiceDisplay(idx);
+      });
+      item.addEventListener('click', () => {
+        const idx = parseInt(item.getAttribute('data-index'));
+        updateServiceDisplay(idx);
+      });
+    });
+
+    function updateServiceDisplay(idx) {
+      srvNavItems.forEach(nav => nav.classList.remove('active'));
+      srvNavItems[idx].classList.add('active');
+
+      const data = serviceData[idx];
+      srvActiveNo.textContent = data.noStr;
+      srvActiveTitle.textContent = data.title;
+      srvActiveDesc.textContent = data.desc;
+      serviceImageBg.style.backgroundImage = `url('${data.img}')`;
+
+      // Update Capsules
+      srvActiveCapsules.innerHTML = '';
+      data.capsules.forEach(cap => {
+        const tag = document.createElement('span');
+        tag.className = 'cap-tag';
+        tag.textContent = cap;
+        srvActiveCapsules.appendChild(tag);
+      });
     }
 
-    // Handle Hash Changes (Back / Forward navigation)
-    window.addEventListener('hashchange', () => {
-      const route = window.location.hash.replace('#', '') || 'home';
-      navigateTo(route);
-    });
+    // 5-Stage Journey Interactive Controller
+    const stagesData = [
+      {
+        num: "01",
+        title: "Understand",
+        lead: "Conducting comprehensive business assessment to establish your operational capabilities, domestic product positioning, and export-readiness baseline.",
+        detail: "We evaluate manufacturing capacity, certifications, pricing economics, and organizational readiness before entering foreign trade dialogues."
+      },
+      {
+        num: "02",
+        title: "Plan",
+        lead: "Developing a pragmatic, data-backed market entry strategy tailored to target market compliance, competition, and commercial profitability.",
+        detail: "We define targeted foreign geographies, appropriate Incoterms, regulatory prerequisites, distribution models, and tariff positioning."
+      },
+      {
+        num: "03",
+        title: "Connect",
+        lead: "Building qualified international business relationships, from prospective buyers and distributors to verified manufacturing supply partners.",
+        detail: "We bypass untargeted outreach, focusing exclusively on qualified counterparties aligned with your product standard and scale."
+      },
+      {
+        num: "04",
+        title: "Execute",
+        lead: "Navigating international contracts, documentation accuracy, payment risk mitigations, and cross-border logistics coordination.",
+        detail: "Structured guidance through commercial invoices, letters of credit, shipping bill compliance, and freight handover."
+      },
+      {
+        num: "05",
+        title: "Grow",
+        lead: "Sustaining cross-border trade operations, securing recurring buyer demand, and scaling into complementary foreign jurisdictions.",
+        detail: "Providing continuous advisory to optimize working capital, address supply variances, and establish resilient global market presence."
+      }
+    ];
 
-    // Mobile Hamburger Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
+    function activateStage(idx) {
+      const buttons = document.querySelectorAll('.stage-milestone-btn');
+      buttons.forEach((btn, i) => {
+        if(i === idx) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
-      mobileMenuBtn.textContent = mobileDrawer.classList.contains('open') ? '✕' : '☰';
-    });
+      // Fill line percentage
+      const fillBar = document.getElementById('journeyFillBar');
+      const percentage = ((idx + 1) / 5) * 100;
+      fillBar.style.width = percentage + '%';
+
+      // Update Canvas
+      const stage = stagesData[idx];
+      document.getElementById('stageBigNum').textContent = stage.num;
+      document.getElementById('stageTitleHeading').textContent = stage.title;
+      document.getElementById('stageLeadText').textContent = stage.lead;
+      document.getElementById('stageDetailText').textContent = stage.detail;
+    }
+
+    // Global Markets Dynamic Selection
+    const marketData = [
+      {
+        title: "India",
+        desc: "India: Advisory on domestic manufacturing competitiveness, export compliance frameworks, quality certification for export readiness, and inbound industrial sourcing strategies."
+      },
+      {
+        title: "Dubai / UAE",
+        desc: "Dubai / UAE: Strategic market entry, Free Zone vs. Mainland structural guidance, commercial setup advisory, and re-export channel planning across the Middle East."
+      },
+      {
+        title: "USA",
+        desc: "USA: Assessing product conformity, entry requirements, commercial partnership opportunities, and structured feasibility for Indian products entering the American market."
+      },
+      {
+        title: "Canada",
+        desc: "Canada: Guidance on market dynamics, trade channels, regulatory standards, and commercial partner identification across leading provincial economic centers."
+      },
+      {
+        title: "Selected African Markets",
+        desc: "Selected African Markets: Strategic identification of emerging demand in industrial goods, machinery, and agricultural commodities within vetted regional jurisdictions."
+      }
+    ];
+
+    function selectMarket(idx) {
+      const tabs = document.querySelectorAll('.market-tab-btn');
+      tabs.forEach((tab, i) => {
+        if(i === idx) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+
+      const target = marketData[idx];
+      document.getElementById('marketDetailText').innerHTML = `<strong>${target.title}:</strong> ${target.desc.replace(target.title + ':', '')}`;
+    }
 
     // Form Submission Handling
-    function handleFormSubmit(e) {
+    function handleLeadSubmit(e) {
       e.preventDefault();
-      const form = document.getElementById('consultationForm');
-      const successBox = document.getElementById('formSuccessAlert');
-
-      // Simple UI Feedback without fake backends
-      form.style.display = 'none';
-      successBox.style.display = 'block';
-
-      // Scroll to alert
-      successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('leadConsultationForm').style.display = 'none';
+      document.getElementById('formSuccessMessage').style.display = 'block';
     }
 
-    // Attach click listeners to all data-route links
-    document.querySelectorAll('[data-route]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        const route = el.getAttribute('data-route');
-        navigateTo(route);
-      });
+    // Mobile Drawer Logic
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    menuToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
     });
 
-    // Initial Load Check
-    window.addEventListener('DOMContentLoaded', () => {
-      const initialRoute = window.location.hash.replace('#', '') || 'home';
-      navigateTo(initialRoute);
-    });
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+    }
   </script>
 
 </body>
