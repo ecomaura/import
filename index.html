@@ -961,12 +961,16 @@
     }
 
     .market-map-graphic {
-      width: 100%;
-      border: 1px solid var(--border-crisp);
-      padding: clamp(1.5rem, 3vw, 2.5rem);
-      background: var(--bg-canvas);
-      box-shadow: 0 8px 30px rgba(10, 25, 47, 0.04);
-    }
+  width: 100%;
+  border: 1px solid var(--border-crisp);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--bg-canvas) url('images/360_F_155667610_43ATApKYqwpm81rwFErjAkzy7HDjb53W.jpg') center center / cover no-repeat;
+  box-shadow: 0 8px 30px rgba(10, 25, 47, 0.04);
+}
+
+    .market-map-graphic svg {
+  background: rgba(249, 249, 246, 0.55); /* light wash so node labels stay readable over the photo */
+}
 
     .market-clarification {
       font-size: 0.85rem;
