@@ -537,6 +537,48 @@
       text-transform: uppercase;
     }
 
+    /* Founder Portrait Integration */
+    .about-portrait-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-crisp);
+      box-shadow: 0 12px 36px rgba(10, 25, 47, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portrait-frame {
+      width: 100%;
+      background: var(--navy-abyss);
+      border-bottom: 2px solid var(--gold-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .founder-portrait-img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain; /* Ensures the portrait is shown fully without cropping */
+      display: block;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .portrait-meta {
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+    }
+
+    .academic-tag {
+      font-size: 0.84rem;
+      color: var(--gold-accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
     .ticker-bar span {
       display: inline-flex;
       align-items: center;
@@ -2278,17 +2320,27 @@
       <section class="about-section" id="about">
         <div class="container">
           <div class="about-grid">
-            <div class="about-monogram-box">
-              <div class="monogram-badge">AV</div>
-              <h3 class="about-formal-name">DR. ARYANKUMAR VERMA</h3>
-              <p style="font-size: 0.85rem; color: var(--gold-accent); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">
-                Doctor of Philosophy (Ph.D.) in Business Management
-              </p>
-              <ul class="about-designations">
-                <li>Business Management Consultant</li>
-                <li>International Trade Consultant</li>
-                <li>Export Business Advisor</li>
-              </ul>
+            <!-- Founder Full Portrait & Credentials Card -->
+            <div class="about-portrait-card">
+              <div class="portrait-frame">
+                <img 
+                  src="images/IMG-20260924-WA0007.jpg" 
+                  alt="Portrait of Dr. Aryankumar Verma" 
+                  class="founder-portrait-img"
+                />
+              </div>
+              <div class="portrait-meta">
+                <span class="step-label">PRINCIPAL ADVISOR</span>
+                <h3 class="about-formal-name">DR. ARYANKUMAR VERMA</h3>
+                <p class="academic-tag">
+                  Doctor of Philosophy (Ph.D.) in Business Management
+                </p>
+                <ul class="about-designations">
+                  <li>Business Management Consultant</li>
+                  <li>International Trade Consultant</li>
+                  <li>Export Business Advisor</li>
+                </ul>
+              </div>
             </div>
 
             <div class="about-narrative">
