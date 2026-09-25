@@ -417,6 +417,9 @@
     /* ==========================================================
        HERO SECTION WITH COVER BACKGROUND IMAGE
        ========================================================== */
+    /* ==========================================================
+       HERO SECTION WITH COVER BACKGROUND IMAGE (NO GRADIENT)
+       ========================================================== */
     .hero-section {
       position: relative;
       min-height: calc(100vh - 88px);
@@ -427,15 +430,8 @@
       border-bottom: 1px solid var(--border-crisp);
       overflow: hidden;
 
-      /* Full cover background image with an editorial light gradient overlay */
-      background-image: 
-        linear-gradient(
-          to right,
-          rgba(249, 249, 246, 0.94) 0%,
-          rgba(249, 249, 246, 0.88) 50%,
-          rgba(249, 249, 246, 0.75) 100%
-        ),
-        url("images/ChatGPT Image Sep 25, 2026, 11_44_47 AM.png");
+      /* Direct cover background without any gradient overlay */
+      background-image: url("images/ChatGPT Image Sep 25, 2026, 11_44_47 AM.png");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
