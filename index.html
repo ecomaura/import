@@ -995,6 +995,185 @@
       align-items: start;
     }
 
+    /* ==========================================================
+       INVESTORS SECTION STYLING (Institutional Light)
+       ========================================================== */
+    .investors-section {
+      padding: clamp(5rem, 8vw, 8.5rem) 0;
+      border-bottom: 1px solid var(--border-crisp);
+      background-color: var(--bg-canvas);
+    }
+
+    .investors-header {
+      margin-bottom: 3rem;
+    }
+
+    .investors-intro-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .investors-lead-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-crisp);
+      padding: clamp(2rem, 3.5vw, 3rem);
+    }
+
+    .investors-subheading {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--navy-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .tenure-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .tenure-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+      background: var(--gold-surface);
+      color: var(--gold-accent);
+      border: 1px solid var(--border-gold);
+    }
+
+    .tenure-subtext {
+      font-size: 0.9rem;
+      color: var(--slate-muted);
+      line-height: 1.6;
+    }
+
+    .investors-contact-card {
+      background: var(--navy-primary);
+      color: #FFFFFF;
+      padding: clamp(2rem, 3.5vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .investors-contact-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      color: #FFFFFF;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .investors-contact-copy {
+      font-size: 0.9rem;
+      color: #C4CED8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .investors-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .investor-direct-link {
+      font-size: 0.92rem;
+      color: var(--bg-surface);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 0.4rem;
+    }
+
+    .investor-direct-link strong {
+      color: var(--gold-light);
+    }
+
+    .investor-direct-link:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .utilization-container {
+      margin-bottom: 3.5rem;
+    }
+
+    .utilization-title {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      color: var(--navy-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .utilization-subtitle {
+      font-size: 0.95rem;
+      color: var(--slate-muted);
+      margin-bottom: 2rem;
+    }
+
+    .utilization-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border-crisp);
+      border: 1px solid var(--border-crisp);
+    }
+
+    .utilization-item {
+      background: #FFFFFF;
+      padding: 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    .util-num {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+      line-height: 1;
+    }
+
+    .utilization-item p {
+      font-size: 0.95rem;
+      color: var(--slate-body);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .investor-risk-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-crisp);
+      border-left: 3px solid var(--gold-accent);
+      padding: clamp(2rem, 3vw, 2.5rem);
+    }
+
+    .objective-heading {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--navy-primary);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .regulatory-disclosure {
+      font-size: 0.84rem;
+      color: var(--slate-muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 860px) {
+      .investors-intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .about-monogram-box {
       border: 1px solid var(--border-crisp);
       padding: clamp(2rem, 4vw, 3.5rem);
@@ -1555,7 +1734,8 @@
               <li><a href="#approach" class="nav-link">Approach</a></li>
               <li><a href="#about" class="nav-link">About</a></li>
               <li><a href="#markets" class="nav-link">Markets</a></li>
-              <li><a href="#contact" class="nav-link">Contact</a></li>
+<li><a href="#investors" class="nav-link">Investors</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
           </nav>
 
@@ -1577,8 +1757,9 @@
         <li><a href="#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a></li>
         <li><a href="#approach" class="mobile-nav-link" onclick="closeMobileMenu()">Approach</a></li>
         <li><a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a></li>
-        <li><a href="#markets" class="mobile-nav-link" onclick="closeMobileMenu()">Markets</a></li>
-        <li><a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a></li>
+       <li><a href="#markets" class="mobile-nav-link" onclick="closeMobileMenu()">Markets</a></li>
+<li><a href="#investors" class="mobile-nav-link" onclick="closeMobileMenu()">Investors</a></li>
+<li><a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a></li>
       </ul>
       <button class="btn btn-navy" style="width: 100%;" onclick="closeMobileMenu(); openConsultationModal();">Book a Consultation</button>
     </div>
@@ -1997,6 +2178,101 @@
       </section>
 
       <!-- ========================================================
+           INVESTOR OPPORTUNITIES SECTION
+           ======================================================== -->
+      <section class="investors-section" id="investors">
+        <div class="container">
+          <div class="investors-header">
+            <span class="eyebrow">Capital Deployment &amp; Participation</span>
+            <h2 class="section-title">INVESTMENT OPPORTUNITIES FOR INDIVIDUALS &amp; INVESTORS.</h2>
+            <p class="section-desc">
+              Structured business-funding models tailored for short- to medium-term commercial trade execution.
+            </p>
+          </div>
+
+          <div class="investors-intro-grid">
+            <div class="investors-lead-card">
+              <h3 class="investors-subheading">Structured Commercial Funding</h3>
+              <p>
+                We offer structured business-funding opportunities for individuals and investors interested in participating in short- to medium-term commercial funding models, subject to applicable agreements, business requirements, and legal and regulatory conditions[cite: 1].
+              </p>
+              <div class="tenure-badge-row">
+                <span class="tenure-pill">1-Month Tenure[cite: 1]</span>
+                <span class="tenure-pill">3-Month Tenure[cite: 1]</span>
+                <span class="tenure-pill">6-Month Tenure[cite: 1]</span>
+                <span class="tenure-pill">Custom Agreed Tenures[cite: 1]</span>
+              </div>
+              <p class="tenure-subtext">
+                Funding arrangements are structured depending on specific commercial opportunities, funding requirements, and terms documented in applicable agreements[cite: 1].
+              </p>
+            </div>
+
+            <div class="investors-contact-card">
+              <span class="step-label">DIRECT INQUIRIES</span>
+              <h4 class="investors-contact-title">Investor Relations Desk</h4>
+              <p class="investors-contact-copy">
+                To evaluate active allocations, business documentation, and commercial parameters, contact our advisory directly:
+              </p>
+              <div class="investors-contact-links">
+                <a href="mailto:argroup.av@gmail.com" class="investor-direct-link">
+                  <strong>Email:</strong> argroup.av@gmail.com[cite: 1]
+                </a>
+                <a href="https://wa.me/919327155550" target="_blank" rel="noopener noreferrer" class="investor-direct-link">
+                  <strong>WhatsApp:</strong> +91 93271 55550[cite: 1]
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Utilization of Funds -->
+          <div class="utilization-container">
+            <h3 class="utilization-title">Utilization of Funds[cite: 1]</h3>
+            <p class="utilization-subtitle">
+              Subject to applicable agreements, capital may be deployed strictly across legitimate business and commercial activities[cite: 1]:
+            </p>
+            <div class="utilization-grid">
+              <div class="utilization-item">
+                <span class="util-num">01</span>
+                <p>Completion of pending export transactions[cite: 1]</p>
+              </div>
+              <div class="utilization-item">
+                <span class="util-num">02</span>
+                <p>Working capital requirements for confirmed or large-volume orders[cite: 1]</p>
+              </div>
+              <div class="utilization-item">
+                <span class="util-num">03</span>
+                <p>Procurement of goods, raw materials, and inventory[cite: 1]</p>
+              </div>
+              <div class="utilization-item">
+                <span class="util-num">04</span>
+                <p>Order fulfillment, logistics, and supply-chain operations[cite: 1]</p>
+              </div>
+              <div class="utilization-item">
+                <span class="util-num">05</span>
+                <p>E-commerce business operations and expansion[cite: 1]</p>
+              </div>
+              <div class="utilization-item">
+                <span class="util-num">06</span>
+                <p>Other approved activities related to trade and commerce[cite: 1]</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Objective & Regulatory Risk Statement -->
+          <div class="investor-risk-card">
+            <h4 class="objective-heading">Business Objective &amp; Risk Disclosure</h4>
+            <p>
+              Our objective is to deploy capital toward genuine commercial requirements and generate returns through underlying business activities[cite: 1]. Any profit-sharing arrangement, return, repayment schedule, fees, or other financial terms will be clearly stated in the applicable agreement[cite: 1].
+            </p>
+            <div class="gold-rule"></div>
+            <p class="regulatory-disclosure">
+              Investment or funding opportunities may involve commercial, operational, liquidity, counterparty, and other risks[cite: 1]. Returns are not guaranteed unless expressly provided for under a legally valid and applicable arrangement[cite: 1]. Investors should independently review the business opportunity, applicable documentation, tenure, risks, repayment conditions, and relevant legal and regulatory requirements before committing funds[cite: 1]. Participation is subject to availability, business requirements, eligibility, documentation, and applicable laws and regulations[cite: 1].
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
            ABOUT DR. ARYANKUMAR VERMA
            ======================================================== -->
       <section class="about-section" id="about">
@@ -2158,6 +2434,7 @@
               <li><a href="#approach">Strategic Approach</a></li>
               <li><a href="#about">About Dr. Verma</a></li>
               <li><a href="#markets">Supported Markets</a></li>
+              <li><a href="#investors">Investor Opportunities</a></li>
               <li><a href="#contact">Contact &amp; Engagement</a></li>
             </ul>
           </div>
@@ -2215,6 +2492,7 @@
           <label class="form-label" for="serviceSelect">Service Requirement</label>
           <select id="serviceSelect" class="form-select">
             <option value="Export Business Development">Export Business Development</option>
+            <option value="Investor Participation">Commercial Funding &amp; Investor Participation</option>
             <option value="Global Sourcing & Import">Global Sourcing &amp; Import Consultancy</option>
             <option value="International Business Setup">International Business Setup (UAE/USA/Canada)</option>
             <option value="International Trade Consultancy">General International Trade Consultancy</option>
